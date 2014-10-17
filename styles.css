@@ -1,0 +1,46 @@
+#chart {
+  width: 960px;
+  height: 500px;
+  font-family: "Open Sans"; }
+
+text {
+  pointer-events: none;
+  fill: white;
+  text-transform: uppercase;
+  font-weight: bold; }
+
+rect {
+  fill: none;
+  stroke: #fff; }
+  rect.parent {
+    stroke-width: 3px; }
+  rect[color="green-a"] {
+    fill: #00aa3a; }
+  rect[color="green-b"] {
+    fill: #178939; }
+  rect[color="green-c"] {
+    fill: #2d6439; }
+  rect[color="grey"] {
+    fill: #45433b; }
+  rect[color="red-c"] {
+    fill: #722d25; }
+  rect[color="red-b"] {
+    fill: #a61e12; }
+  rect[color="red-a"] {
+    fill: #d60b04; }
+  rect[color="no-data"] {
+    fill: #b3b3b3; }
+
+.grandparent rect {
+  fill: white; }
+.grandparent text {
+  font-weight: bold;
+  fill: #aa9966; }
+.grandparent:hover text {
+  fill: #7e7046; }
+
+.children rect.parent, .grandparent rect {
+  cursor: pointer; }
+
+.children rect.parent {
+  fill-opacity: 0.5; }
