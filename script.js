@@ -152,22 +152,20 @@ var graph = function(root) {
       .append("title")
       .text(function(d) { return formatNumber(d.value); });
 
+//    var priceupdate = function(d) { return d.change; };
+//    if (priceupdate != null) {
+//      g.append("text")
+//        .attr("dy", "3em")
+//        .attr("dx", "10px")
+//        .text(priceupdate)
+//        .call(text);
+//    }
+
     g.append("text")
-      .attr("dy", "1em" )
-      .attr("dx", "10px")
-      .style("font-size", "1.75em")
+      .call(text)
       .text(function(d) { return d.name; })
-      .call(text);
-
-
-    var changetext = function(d) { return d.change; };
-    if (changetext != null) {
-      g.append("text")
-        .attr("dy", "3em")
-        .attr("dx", "10px")
-        .text(changetext)
-        .call(text);
-    }
+      .attr("font-size", "1.5em")
+      .attr("dy", "2em");
 
 
     function transition(d) {
@@ -196,6 +194,8 @@ var graph = function(root) {
       t1.selectAll("rect").call(rect);
       t2.selectAll("rect").call(rect);
 
+
+
       // Remove the old node when the transition is finished.
       t1.remove().each("end", function() {
         svg.style("shape-rendering", "crispEdges");
@@ -207,6 +207,13 @@ var graph = function(root) {
   function text(text) {
     text.attr("x", function(d) { return x(d.x) + 6; })
       .attr("y", function(d) { return y(d.y) + 6; });
+  }
+  function foreign(foreignObject) {
+    console.log("foreign");
+    foreignObject.attr("x", function(d) { return x(d.x); })
+      .attr("y", function(d) { return y(d.y); })
+      .attr("width", function(d) { return x(d.x + d.dx) - x(d.x); })
+      .attr("height", function(d) { return y(d.y + d.dy) - y(d.y); });
   }
   function rect(rect) {
     rect.attr("x", function(d) { return x(d.x); })
@@ -229,5 +236,3 @@ var graph = function(root) {
 d3.json("flare.json", function(data){
   graph(data);
 });
-
-
