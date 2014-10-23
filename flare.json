@@ -1,9 +1,7 @@
 
 {
   "name": "All Positions",
-  "children": [{
-    "name": "Equity",
-    "children": [
+  "children": [
       {"name": "MSFT", "value": 12.35,"color":"green-a"},
       {"name": "MSFT", "value": 9.36,"color":"green-b"},
       {"name": "MSFT", "value": 7.72,"color":"green-c"},
@@ -29,22 +27,18 @@
       {"name": "MSFT", "value": 0.5,"color":"no-data"},
       {"name": "MSFT", "value": 0.5,"color":"green-b"},
       {"name": "MSFT", "value": 0.5,"color":"red-b"},
-      {"name": "MSFT", "value": 0.5,"color":"red-c"}
-    ]
-  },{
-    "name": "Fixed Income",
-    "children": [
+      {"name": "MSFT", "value": 0.5,"color":"red-c"},
       {"name": "MSFT", "value": 9,"color":"green-a"},
-      {"name": "MSFT", "value": 5,"color":"green-b"},
+      {"name": "MSFT Microsoft", "value": 59,"color":"green-b"},
       {"name": "MSFT", "value": 5,"color":"green-c"},
-      {"name": "MSFT", "value": 5,"color":"grey"},
+      {"name": "MSFT", "value": 5,"color":"no-data"},
       {"name": "MSFT", "value": 4,"color":"green-b"},
       {"name": "MSFT", "value": 4,"color":"green-c"},
       {"name": "MSFT", "value": 4,"color":"green-b"},
       {"name": "MSFT", "value": 3,"color":"red-c"},
       {"name": "MSFT", "value": 2,"color":"red-c"},
       {"name": "MSFT", "value": 2,"color":"green-b"},
-      {"name": "MSFT", "value": 2,"color":"green-b"},
+      {"name": "MSFT", "value": 2,"color":"light-grey"},
       {"name": "MSFT", "value": 2,"color":"no-data"},
       {"name": "MSFT", "value": 2,"color":"green-c"},
       {"name": "MSFT", "value": 1,"color":"green-b"},
@@ -63,16 +57,8 @@
       {"name": "MSFT", "value": 0.5,"color":"green-b"},
       {"name": "MSFT", "value": 0.5,"color":"red-b"},
       {"name": "MSFT", "value": 0.5,"color":"red-c"},
-      {"name": "MSFT", "value": 0.5,"color":"green-c"}
-    ]
-  },{
-    "name": "MSFT Microsoft",
-    "children": [
-      {"name": "MSFT Microsoft", "value": 59,"color":"green-a", "change": "0.37 UP 1.50%"}
-    ]
-  },{
-    "name": "Liquidity & Short term investments",
-    "children": [
+      {"name": "MSFT", "value": 0.5,"color":"green-c"},
+      {"name": "MSFT Microsoft", "value": 5,"color":"green-a", "change": "0.37 UP 1.50%"},
       {"name": "MSFT", "value": 8,"color":"green-a"},
       {"name": "MSFT", "value": 3,"color":"green-b"},
       {"name": "MSFT", "value": 3,"color":"green-b"},
@@ -97,22 +83,10 @@
       {"name": "MSFT", "value": 0.5,"color":"green-b"},
       {"name": "MSFT", "value": 0.5,"color":"red-c"},
       {"name": "MSFT", "value": 0.5,"color":"red-b"},
-      {"name": "MSFT", "value": 0.5,"color":"red-c"}
-    ]
-  },{
-    "name": "Mixed & Other Investements",
-    "children": [
+      {"name": "MSFT", "value": 0.5,"color":"red-c"},
       {"name": "MSFT", "value": 2,"color":"green-c"},
-      {"name": "MSFT", "value": 1,"color":"red-c"}
-    ]
-  },{
-    "name": "Pension products",
-    "children": [
-      {"name": "MSFT", "value": 9,"color":"green-c"}
-    ]
-  },{
-    "name": "Alternative investments, commodities & real estate",
-    "children": [
+      {"name": "MSFT", "value": 1,"color":"red-c"},
+      {"name": "MSFT", "value": 9,"color":"green-c"},
       {"name": "MSFT", "value": 3,"color":"green-a"},
       {"name": "MSFT", "value": 3,"color":"green-a"},
       {"name": "MSFT", "value": 2,"color":"green-b"},
@@ -129,5 +103,4 @@
       {"name": "MSFT", "value": 0.5,"color":"red-b"},
       {"name": "MSFT", "value": 0.5,"color":"red-c"}
     ]
-  }]
 }

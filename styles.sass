@@ -1,3 +1,9 @@
+//div.bar
+//  background: pink
+//  width: 20px
+//  height: 75px
+//  display: inline-block
+//  border: 1px solid white
 
 $green-a: #00aa3a
 $green-b: #178939
@@ -10,56 +16,45 @@ $red-a: #d60b04
 $gold: #aa9966
 
 
-#chart
-  width: 960px
-  height: 500px
-  font-family: "Open Sans"
+#wall
+  display: flex
+  -webkit-flex-direction: column
+  -webkit-flex-wrap: wrap
+  -webkit-justify-content: flex-start
+  -webkit-align-items: flex-start
+  -webkit-align-content: flex-start
 
-text
-  pointer-events: none
-  fill: white
-  text-transform: uppercase
-  font-weight: bold
-
-
-
-rect
-  fill: none
-  stroke: #fff
-  &.parent
-    stroke-width: 3px
-  &[color="green-a"]
-    fill: $green-a
-  &[color="green-b"]
-    fill: $green-b
-  &[color="green-c"]
-    fill: $green-c
-  &[color="grey"]
-    fill: $grey
-  &[color="red-c"]
-    fill: $red-c
-  &[color="red-b"]
-    fill: $red-b
-  &[color="red-a"]
-    fill: $red-a
-  &[color="no-data"]
-    fill: $light-grey
-
-.grandparent
-  rect
-    fill: white
-  text
+  background: #eee
+  .brick
+    width: 200px
+    border: 1px solid white
+    box-sizing: border-box
+    font-size: 20px
+    -webkit-transition: all 0.4s ease
+    overflow: hidden
+    color: white
+    font-family: sans-serif
     font-weight: bold
-    fill: $gold
-  &:hover
-    text
-      fill: darken($gold, 15)
+    //min-height: 50px
+
+    &.green-a
+      background-color: $green-a
+    &.green-b
+      background-color: $green-b
+    &.green-c
+      background-color: $green-c
+    &.no-data
+      background-color: $grey
+    &.light-grey
+      background-color: $light-grey
+    &.red-c
+      background-color: $red-c
+    &.red-b
+      background-color: $red-b
+    &.red-a
+      background-color: $red-a
+    &.gold
+      background-color: $gold
 
 
-.children rect.parent, .grandparent rect
-  cursor: pointer
-
-.children
-  rect.parent
-    fill-opacity: .5
 

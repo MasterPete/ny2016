@@ -5,24 +5,19 @@
     <link rel="stylesheet" href="styles.css">
     <!--link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,400')-->
     <script src="d3.min.js"></script>
+    <script src="d3-masonry.js"></script>
     <script src="jquery-2.1.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
     <!--meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')-->
     <!--mata(content="IE=edge" http-equiv="X-UA-Compatible")-->
   </head>
   <body>
-    <form>
-      <select id="mode">
-        <option value="price">Price</option>
-        <option value="holding">Holding</option>
-      </select>
-    </form>
-    <form>
-      <select id="time">
-        <option value="1d">One day</option>
-        <option value="1m">One month</option>
-      </select>
-    </form>
     <p id="chart"></p>
+    <button id="sort-reset">reset</button>
+    <button id="sort-value">Value</button>
+    <button id="sort-color">Performance</button>
+    <input id="slider" type="range" min="200" max="1000" value="200">
+    <div id="wall"></div>
     <script src="script.js"></script>
   </body>
 </html>

@@ -5,21 +5,22 @@ html
         link(rel='stylesheet', href='styles.css')
         //link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,400')
         script(src='d3.min.js')
+        script(src='d3-masonry.js')
         script(src='jquery-2.1.1.min.js')
+        script(src='http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js')
 
         //meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
         //mata(content="IE=edge" http-equiv="X-UA-Compatible")
     body
 
-        form
-            select#mode
-                option(value="price") Price
-                option(value="holding") Holding
-        form
-            select#time
-                option(value="1d") One day
-                option(value="1m") One month
         p#chart
+
+        button#sort-reset reset
+        button#sort-value Value
+        button#sort-color Performance
+        input#slider(type="range", min="200", max="1000", value="200")
+
+        #wall
 
 
 
