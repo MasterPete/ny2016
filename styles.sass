@@ -18,15 +18,16 @@ $gold: #aa9966
 
 #wall
   display: flex
-  -webkit-flex-direction: column
+  -webkit-flex-direction: row
   -webkit-flex-wrap: wrap
   -webkit-justify-content: flex-start
   -webkit-align-items: flex-start
   -webkit-align-content: flex-start
 
   background: #eee
+  //width: 100%
   .brick
-    width: 200px
+    height: 200px
     border: 1px solid white
     box-sizing: border-box
     font-size: 20px
@@ -35,7 +36,7 @@ $gold: #aa9966
     color: white
     font-family: sans-serif
     font-weight: bold
-    //min-height: 50px
+    //min-width: 50px
 
     &.green-a
       background-color: $green-a
