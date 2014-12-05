@@ -1,61 +1,51 @@
-//div.bar
-//  background: pink
-//  width: 20px
-//  height: 75px
-//  display: inline-block
-//  border: 1px solid white
 
-$green-a: #00aa3a
-$green-b: #178939
-$green-c: #2d6439
-$grey: #45433b
-$light-grey: #b3b3b3
-$red-c: #722d25
-$red-b: #a61e12
-$red-a: #d60b04
-$gold: #aa9966
+html, body
+  font-family: sans-serif
+  width: 100%
+  height: 100%
+  overflow: auto
+  background: pink
+  margin: 0
+  padding: 0
 
 
-#wall
-  display: flex
-  -webkit-flex-direction: row
-  -webkit-flex-wrap: wrap
-  -webkit-justify-content: flex-start
-  -webkit-align-items: flex-start
-  -webkit-align-content: flex-start
-
-  background: #eee
-  //width: 100%
-  .brick
-    height: 200px
-    border: 1px solid white
-    box-sizing: border-box
-    font-size: 20px
-    -webkit-transition: all 0.4s ease
-    overflow: hidden
-    color: white
-    font-family: sans-serif
-    font-weight: bold
-    //min-width: 50px
-
-    &.green-a
-      background-color: $green-a
-    &.green-b
-      background-color: $green-b
-    &.green-c
-      background-color: $green-c
-    &.no-data
-      background-color: $grey
-    &.light-grey
-      background-color: $light-grey
-    &.red-c
-      background-color: $red-c
-    &.red-b
-      background-color: $red-b
-    &.red-a
-      background-color: $red-a
-    &.gold
-      background-color: $gold
+#arc
+  background: white
+  position: absolute
+  top: 0
+  left: -300px
+  width: 500px
+  height: 500px
+  border-radius: 500px
+  box-shadow: 0px 0px 50px black
+  &:after
+    content: ""
+    position: absolute
+    display: block
+    width: 0
+    height: 0
+    right: -20px
+    top: calc(50% - 25px)
+    border-style: solid
+    border-color: transparent transparent transparent white
+    border-width: 25px 0 25px 43.3px
 
 
+#funky
+  background: lightsalmon
+  position: absolute
+  left: 200px
+  top: 0
+  list-style-type: none
+  padding: 0
+  margin: 0
 
+  li
+    background: cornflowerblue
+    padding: 50px 20px
+    &.active
+      background: lightgoldenrodyellow
+
+
+.animated
+  transition: all 200ms ease

@@ -1,36 +1,46 @@
-#wall {
-  display: flex;
-  -webkit-flex-direction: column;
-  -webkit-flex-wrap: wrap;
-  -webkit-justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-align-content: flex-start;
-  background: #eee; }
-  #wall .brick {
-    width: 200px;
-    border: 1px solid white;
-    box-sizing: border-box;
-    font-size: 20px;
-    -webkit-transition: all 0.4s ease;
-    overflow: hidden;
-    color: white;
-    font-family: sans-serif;
-    font-weight: bold; }
-    #wall .brick.green-a {
-      background-color: #00aa3a; }
-    #wall .brick.green-b {
-      background-color: #178939; }
-    #wall .brick.green-c {
-      background-color: #2d6439; }
-    #wall .brick.no-data {
-      background-color: #45433b; }
-    #wall .brick.light-grey {
-      background-color: #b3b3b3; }
-    #wall .brick.red-c {
-      background-color: #722d25; }
-    #wall .brick.red-b {
-      background-color: #a61e12; }
-    #wall .brick.red-a {
-      background-color: #d60b04; }
-    #wall .brick.gold {
-      background-color: #aa9966; }
+html, body {
+  font-family: sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: pink;
+  margin: 0;
+  padding: 0; }
+
+#arc {
+  background: white;
+  position: absolute;
+  top: 0;
+  left: -300px;
+  width: 500px;
+  height: 500px;
+  border-radius: 500px;
+  box-shadow: 0px 0px 50px black; }
+  #arc:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    right: -20px;
+    top: calc(50% - 25px);
+    border-style: solid;
+    border-color: transparent transparent transparent white;
+    border-width: 25px 0 25px 43.3px; }
+
+#funky {
+  background: lightsalmon;
+  position: absolute;
+  left: 200px;
+  top: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+  #funky li {
+    background: cornflowerblue;
+    padding: 50px 20px; }
+    #funky li.active {
+      background: lightgoldenrodyellow; }
+
+.animated {
+  transition: all 200ms ease; }
