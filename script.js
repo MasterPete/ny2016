@@ -9,49 +9,32 @@ document.ontouchmove = function(e){
 
   hammer.get('pan').set({direction: Hammer.DIRECTION_ALL, threshold: 2, pointers: 0})
 
-
   var offset = 250;
   var scrollPosition = 0;
   var elementHeight = 130;
   var minFontRatio = 0.8;
   var maxFontRatio = 1.4;
 
-
-
   snapTo(parseInt(getListLength() / 2));
-
-  function foo(scrollPosition) {
-    _(_.range(getListLength())).forEach(function (index) {
-      var delta = Math.abs(((index + 0.5) * elementHeight) + scrollPosition);
-      delta = (delta > 400) ? 400 : delta;
-      var fontSize = (1 - delta / 400) * (maxFontRatio - minFontRatio) + minFontRatio;
-      var fontMove = Math.sqrt(Math.pow(400, 2)  - Math.pow(delta, 2)) - 250;
-
-      console.log(index, delta, fontSize);
-      $('#funky li:nth-child(' + (index + 1) + ') p').css({'-webkit-transform': 'scale(' + fontSize + ') translate(' + fontMove + 'px)'});
-    });
-  }
 
   hammer.on('pan', function(ev){
     var activeIndex = limit(-parseInt((scrollPosition + ev.deltaY) / elementHeight), getListLength() - 1);
     scroll(scrollPosition + ev.deltaY);
     setActive(activeIndex);
-    foo(scrollPosition + ev.deltaY);
+    adjustItems(scrollPosition + ev.deltaY);
   });
 
   hammer.on('panstart', function(){
-    log('panstart');
     $('#funky').removeClass('animated');
   });
 
   hammer.on('panend', function(ev){
-    log('panend');
     $('#funky').addClass('animated');
 
     scrollPosition = scrollPosition + ev.deltaY;
 
     var activeIndex = -parseInt((scrollPosition) / elementHeight);
-    snapTo(activeIndex + parseInt(ev.velocityY * 2));
+    snapTo(activeIndex);
   });
 
 
@@ -60,12 +43,19 @@ document.ontouchmove = function(e){
 
     scrollPosition = -elementHeight * ((index + 1) - 0.5);
     scroll(scrollPosition);
-    foo(scrollPosition)
+    adjustItems(scrollPosition)
     setActive(index);
   }
 
-  function log(text){
-    $('#console').append(text + "\n");
+  function adjustItems(scrollPosition) {
+    _(_.range(getListLength())).forEach(function (index) {
+      var delta = Math.abs(((index + 0.5) * elementHeight) + scrollPosition);
+      delta = (delta > 400) ? 400 : delta;
+      var fontSize = (1 - delta / 400) * (maxFontRatio - minFontRatio) + minFontRatio;
+      var fontMove = Math.sqrt(Math.pow(400, 2)  - Math.pow(delta, 2)) - 250;
+
+      $('#funky li:nth-child(' + (index + 1) + ') p').css({'-webkit-transform': 'scale(' + fontSize + ') translate(' + fontMove + 'px)'});
+    });
   }
 
   function limit(value, maxValue, minValue){
@@ -88,15 +78,6 @@ document.ontouchmove = function(e){
   function setActive(activeIndex){
     $('#funky .active').removeClass('active');
     $('#funky li:nth-child('+ (activeIndex+1) +')').addClass('active');
-    $('#funky li').removeClass('small-0');
-    $('#funky li').removeClass('small-1');
-    $('#funky li').removeClass('small-2');
-    $('#funky li').removeClass('small-3');
-
-
-    _(_.range(getListLength())).forEach(function(index){
-      $('#funky li:nth-child('+ (index+1) +')').addClass('small-'+Math.abs(activeIndex - index));
-    });
   }
 })();
 

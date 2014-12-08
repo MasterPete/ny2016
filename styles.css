@@ -94,16 +94,9 @@ html, body {
         background: #cccccc;
         margin-right: 10px; }
     #funky li.active {
-      background: lightgoldenrodyellow;
-      z-index: 5; }
+      background: lightgoldenrodyellow; }
       #funky li.active p:before {
         -webkit-animation: bounce 400ms ease both; }
-    #funky li.small-1 {
-      z-index: 4; }
-    #funky li.small-2 {
-      z-index: 3; }
-    #funky li.small-3 {
-      z-index: 2; }
 
 .animated {
   transition: all 200ms ease; }
