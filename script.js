@@ -13,15 +13,30 @@ document.ontouchmove = function(e){
   var offset = 250;
   var scrollPosition = 0;
   var elementHeight = 120;
+  var minFontRatio = 0.8;
+  var maxFontRatio = 1.4;
+
+
 
   snapTo(parseInt(getListLength() / 2));
 
+  function foo(scrollPosition) {
+    _(_.range(getListLength())).forEach(function (index) {
+      var delta = Math.abs(((index + 0.5) * elementHeight) + scrollPosition);
+      delta = (delta > 400) ? 400 : delta;
+      var fontSize = (1 - delta / 400) * (maxFontRatio - minFontRatio) + minFontRatio;
+      var fontMove = (1 - delta / 400) * 150;
+
+      console.log(index, delta, fontSize);
+      $('#funky li:nth-child(' + (index + 1) + ') p').css({'-webkit-transform': 'scale(' + fontSize + ') translate(' + fontMove + 'px)'});
+    });
+  }
+
   hammer.on('pan', function(ev){
     var activeIndex = limit(-parseInt((scrollPosition + ev.deltaY) / elementHeight), getListLength() - 1);
-    if(scrollPosition + ev.deltaY < -60) {
-      scroll(scrollPosition + ev.deltaY);
-    }
+    scroll(scrollPosition + ev.deltaY);
     setActive(activeIndex);
+    foo(scrollPosition + ev.deltaY);
   });
 
   hammer.on('panstart', function(){
@@ -33,11 +48,13 @@ document.ontouchmove = function(e){
     log('panend');
     $('#funky').addClass('animated');
 
-
     scrollPosition = scrollPosition + ev.deltaY;
 
     var activeIndex = -parseInt((scrollPosition) / elementHeight);
-    snapTo(activeIndex + parseInt(ev.velocityY * 2));
+    snapTo(activeIndex);
+//    snapTo(activeIndex + parseInt(ev.velocityY * 2));
+
+    foo(scrollPosition);
   });
 
 
@@ -70,16 +87,15 @@ document.ontouchmove = function(e){
     $('#funky').css({transform: 'translateY(' + (offset + scrollPosition) + 'px)'});
   }
 
-  function cos(degree) {
-    return Math.cos(degree/180*Math.PI);
-  }
-
   function setActive(activeIndex){
     $('#funky .active').removeClass('active');
     $('#funky li:nth-child('+ (activeIndex+1) +')').addClass('active');
-    _(_.range(4).forEach(function(index){
-      $('#funky li').removeClass('small-'+index);
-    }));
+    $('#funky li').removeClass('small-0');
+    $('#funky li').removeClass('small-1');
+    $('#funky li').removeClass('small-2');
+    $('#funky li').removeClass('small-3');
+
+
     _(_.range(getListLength())).forEach(function(index){
       $('#funky li:nth-child('+ (index+1) +')').addClass('small-'+Math.abs(activeIndex - index));
     });
