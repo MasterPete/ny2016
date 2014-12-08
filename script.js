@@ -25,7 +25,7 @@ document.ontouchmove = function(e){
       var delta = Math.abs(((index + 0.5) * elementHeight) + scrollPosition);
       delta = (delta > 400) ? 400 : delta;
       var fontSize = (1 - delta / 400) * (maxFontRatio - minFontRatio) + minFontRatio;
-      var fontMove = (1 - delta / 400) * 150;
+      var fontMove = Math.sqrt(Math.pow(400, 2)  - Math.pow(delta, 2)) - 250;
 
       console.log(index, delta, fontSize);
       $('#funky li:nth-child(' + (index + 1) + ') p').css({'-webkit-transform': 'scale(' + fontSize + ') translate(' + fontMove + 'px)'});
@@ -51,10 +51,7 @@ document.ontouchmove = function(e){
     scrollPosition = scrollPosition + ev.deltaY;
 
     var activeIndex = -parseInt((scrollPosition) / elementHeight);
-//    snapTo(activeIndex);
     snapTo(activeIndex + parseInt(ev.velocityY * 2));
-
-    foo(scrollPosition);
   });
 
 
@@ -63,6 +60,7 @@ document.ontouchmove = function(e){
 
     scrollPosition = -elementHeight * ((index + 1) - 0.5);
     scroll(scrollPosition);
+    foo(scrollPosition)
     setActive(index);
   }
 
