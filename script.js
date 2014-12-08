@@ -12,7 +12,7 @@ document.ontouchmove = function(e){
 
   var offset = 250;
   var scrollPosition = 0;
-  var elementHeight = 120;
+  var elementHeight = 200;
   var minFontRatio = 0.8;
   var maxFontRatio = 1.4;
 
@@ -51,8 +51,8 @@ document.ontouchmove = function(e){
     scrollPosition = scrollPosition + ev.deltaY;
 
     var activeIndex = -parseInt((scrollPosition) / elementHeight);
-    snapTo(activeIndex);
-//    snapTo(activeIndex + parseInt(ev.velocityY * 2));
+//    snapTo(activeIndex);
+    snapTo(activeIndex + parseInt(ev.velocityY * 2));
 
     foo(scrollPosition);
   });
