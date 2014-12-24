@@ -1,129 +1,310 @@
 
-html, body
-  font-family: sans-serif
-  width: 100%
-  height: 100%
-  overflow: auto
-  margin: 0
-  padding: 0
+dice = rgba(255,100,0,0.9)
 
-* *
-  box-sizing: border-box
-
-#shadow, #arc
-  position: absolute
-  top: 50px
-  left: -300px
-  width: 500px
-  height: 500px
-  border-radius: 500px
-
-#shadow
-  position: absolute
-  display: block
-  background: pink
-  width: 400px
-  height: 400px
-  top: calc(50% - 200px)
-  left: -250px
-  border-radius: 250px
-  box-shadow: 50px 0 50px rgba(0,0,0,0.2)
-#arc
-  background: white
-
-  &:before, &:after
-    content: ""
-    position: absolute
-    display: block
-
-  &:after
-    width: 0
-    height: 0
-    right: -20px
-    top: calc(50% - 25px)
-    border-style: solid
-    border-color: transparent transparent transparent white
-    border-width: 25px 0 25px 43.3px
-
-#container
-  position: absolute
-  left: 20px
-  top: 50px
-  width: 500px
-  height: 600px
-  overflow: hidden
-  border: 1px solid
-  &:before, &:after
-    content: ""
-    display: block
-    position: absolute
-    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 50% ,rgba(255,255,255,0) 100%)
-    width: 100%
-    height: 120px
-    top: 0
-    z-index: 10
-    pointer-events: none
-  &:after
-    top: auto
-    bottom: 0
-    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%,rgba(255,255,255,1) 100%)
-  //&:before, &:after
-  //  background: pink
+sideA = dice
+sideB = darken(dice, 10)
+sideC = darken(dice, 20)
+sideD = darken(dice, 25)
+sideE = darken(dice, 30)
 
 
-#funky
-  position: absolute
-  left: 0
-  top: 50px
-  list-style-type: none
-  padding: 0
-  margin: 0
-
-  li
-    padding-left: 132px
-    border-top: 1px solid #eee
-    border-bottom: 1px solid #eee
-    height: 130px
-    width: 650px
-    display: -webkit-flex
-    -webkit-align-items: center
-    position: relative
-    //transition: all 10ms ease
-    p
-      //transition: all 10ms ease
-      display: block
-      width: 100%
+body
+  margin 0
+  padding 0
+  font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+  width 100%
+  height 100%
+  background lightblue
+  overflow hidden
 
 
+#shapeD20
+  position absolute
+  margin -50px auto 0 auto
+  padding 0
+  list-style none
+  width 100%
+  height 100%
+  transform-style preserve-3d
+  .side1
+    .triColor
       &:before
-        display: inline-block
-        content: ""
-        width: 10px
-        height: 10px
-        border-radius: 10px
-        background: #cccccc
-        margin-right: 10px
+        background-color sideA
+      &:after
+        content '1'
+  .side6
+    .triColor
+      &:before
+        background-color sideA
+      &:after
+        content '6'
+  .side7
+    .triColor
+      &:before
+        background-color sideA
+      &:after
+        content '7'
+        transform rotateZ(135deg)
+        line-height 250px
+  .side16
+    .triColor
+      &:before
+        background-color sideA
+      &:after
+        content '16'
+        transform rotateZ(135deg)
+        line-height 250px
+  .side2
+    .triColor
+      &:before
+        background-color sideB
+      &:after
+        content '2'
+  .side8
+    .triColor
+      &:before
+        background-color sideB
+      &:after
+        content '8'
+  .side9
+    .triColor
+      &:before
+        background-color sideB
+      &:after
+        content '9'
+        transform rotateZ(135deg)
+        line-height 250px
+  .side17
+    .triColor
+      &:before
+        background-color sideB
+      &:after
+        content '17'
+        transform rotateZ(135deg)
+        line-height 250px
+  .side3
+    .triColor
+      &:before
+        background-color sideC
+      &:after
+        content '3'
+  .side10
+    .triColor
+      &:before
+        background-color sideC
+      &:after
+        content '10'
+  .side11
+    .triColor
+      &:before
+        background-color sideC
+      &:after
+        content '11'
+        transform rotateZ(135deg)
+        line-height 250px
+  .side18
+    .triColor
+      &:before
+        background-color sideC
+      &:after
+        content '18'
+        transform rotateZ(135deg)
+        line-height 250px
+  .side4
+    .triColor
+      &:before
+        background-color sideD
+      &:after
+        content '4'
+  .side12
+    .triColor
+      &:before
+        background-color sideD
+      &:after
+        content '12'
+  .side13
+    .triColor
+      &:before
+        background-color sideD
+      &:after
+        content '13'
+        transform rotateZ(135deg)
+        line-height 250px
+  .side19
+    .triColor
+      &:before
+        background-color sideD
+      &:after
+        content '19'
+        transform rotateZ(135deg)
+        line-height 250px
+  .side5
+    .triColor
+      &:before
+        background-color sideE
+      &:after
+        content '5'
+  .side14
+    .triColor
+      &:before
+        background-color sideE
+      &:after
+        content '14'
+  .side15
+    .triColor
+      &:before
+        background-color sideE
+      &:after
+        content '15'
+        transform rotateZ(135deg)
+        line-height 250px
+  .side20
+    .triColor
+      &:before
+        background-color sideE
+      &:after
+        content '20'
+        transform rotateZ(135deg)
+        line-height 250px
+  /*&.show-side1*/
+    /*transform rotateX(-60deg)*/
+  /*&.show-side2*/
+    /*transform rotateX(-60deg) rotateY(-72deg)*/
+  /*&.show-side3*/
+    /*transform rotateX(-60deg) rotateY(-144deg)*/
+  /*&.show-side4*/
+    /*transform rotateX(-60deg) rotateY(-216deg)*/
+  /*&.show-side5*/
+    /*transform rotateX(-60deg) rotateY(-288deg)*/
+  /*&.show-side6*/
+    /*transform rotateY(324deg)*/
+  /*&.show-side7*/
+    /*transform rotateY(144deg)*/
+  /*&.show-side8*/
+    /*transform rotateY(252deg)*/
+  /*&.show-side9*/
+    /*transform rotateY(216deg)*/
+  /*&.show-side10*/
+    /*transform rotateY(180deg)*/
+  /*&.show-side11*/
+    /*transform rotateY(288deg)*/
+  /*&.show-side12*/
+    /*transform rotateY(108deg)*/
+  /*&.show-side13*/
+    /*transform rotateY(0deg)*/
+  /*&.show-side14*/
+    /*transform rotateY(36deg)*/
+  /*&.show-side15*/
+    /*transform rotateY(72deg)*/
+  /*&.show-side16*/
+    /*transform rotateX(60deg) rotateY(180deg)*/
+    /*.side13*/
+      /*opacity 0.1*/
+  /*&.show-side17*/
+    /*transform rotateX(60deg) rotateY(252deg)*/
+    /*.side15*/
+      /*opacity 0.1*/
+  /*&.show-side18*/
+    /*transform rotateX(60deg) rotateY(324deg)*/
+    /*.side7*/
+      /*opacity 0.1*/
+  /*&.show-side19*/
+    /*transform rotateX(60deg) rotateY(396deg)*/
+    /*.side9*/
+      /*opacity 0.1*/
+  /*&.show-side20*/
+    /*transform rotateX(60deg) rotateY(108deg)*/
+    /*.side11*/
+      /*opacity 0.1*/
 
-    &.active
-      background: lightgoldenrodyellow
-      p
-        &:before
-          -webkit-animation: bounce 400ms ease both
+.icosahedron, .icosahedron *, .icosahedron *:before
+  position absolute
+  top 50%
+  left 50%
+  margin -5.25em
+  width 10.5em
+  height 10.5em
+  transform-style preserve-3d
 
+.middle
+  transform rotateY(0.62832rad)
 
+.pyramid-bottom
+  transform translateY(4.46592em) rotateX(-3.14159rad)
+
+.middle__half
+  &:nth-child(1)
+    transform translateY(4.46592em) rotateX(0rad)
+  &:nth-child(2)
+    transform translateY(-4.46592em) rotateX(-3.14159rad)
+
+.icosahedron
+  .innerFace_pyramid
+    transform rotateX(0.91891rad)
+  .innerFace_middle
+    transform rotateX(-0.18869rad)
+
+.pyramid-top
+  transform translateY(-4.46592em) rotateX(0rad)
+
+.triShape
+  overflow hidden
+  transform rotate(0.5236rad) skewY(0.5236rad) scaleX(0.86603)
+  &:before
+    transform scaleX(1.1547) skewY(-0.5236rad) rotate(-0.5236rad) translateY(-50%)
+    background-position 50% 100%
+    background-repeat no-repeat
+    background-size 10.5em 9.09327em
+    content ''
+
+#shapeD20 .side1, #shapeD20 .side6, #shapeD20 .side7, #shapeD20 .side16
+  transform rotateY(0rad) translateZ(7.22601em)
+
+#shapeD20 .side2, #shapeD20 .side8, #shapeD20 .side9, #shapeD20 .side17
+  transform rotateY(1.25664rad) translateZ(7.22601em)
+
+#shapeD20 .side3, #shapeD20 .side10, #shapeD20 .side11, #shapeD20 .side18
+  transform rotateY(2.51327rad) translateZ(7.22601em)
+
+#shapeD20 .side4, #shapeD20 .side12, #shapeD20 .side13, #shapeD20 .side19
+  transform rotateY(3.76991rad) translateZ(7.22601em)
+
+#shapeD20 .side5, #shapeD20 .side14, #shapeD20 .side15, #shapeD20 .side20
+  transform rotateY(5.02655rad) translateZ(7.22601em)
+
+.triColor
+  &:after
+    padding 0
+    margin 0
+    display block
+    width 100%
+    height 100%
+    font-size 30px
+    font-weight bold
+    color white
+    text-align center
+    line-height 65px
+    left 0px
+    position absolute
+    transform rotateZ(-45deg)
+
+.fade
+  opacity 0.1
 .animated
-  transition: all 200ms ease
+  transition transform 1000ms cubic-bezier(0.175, 0.885, 0.320, 1)
 
 
-@-webkit-keyframes bounce
-  0%
-    -webkit-transform: scale(1)
-    background: #cccccc
-  80%
-    -webkit-transform: scale(1.6)
-    background: #1a7137
-  100%
-    -webkit-transform: scale(1.4)
-    background: #389858
+/*@keyframes spinD20*/
+  /*0%*/
+    /*transform rotateX(0deg) rotateY(0deg)*/
+  /*100%*/
+    /*transform rotateX(360deg) rotateY(360deg)*/
+
+
+/*.animationD20*/
+  /*animation spinD20 6s linear 2*/
+
+
+
 
 
