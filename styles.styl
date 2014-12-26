@@ -1,11 +1,16 @@
 
-dice = rgba(255,100,0,0.9)
+dice = rgba(248,93,158,0.9)
 
 sideA = dice
-sideB = darken(dice, 10)
-sideC = darken(dice, 20)
-sideD = darken(dice, 25)
-sideE = darken(dice, 30)
+sideA2 = darken(dice, 2.5)
+sideB = darken(dice, 5)
+sideB2 = darken(dice, 7.5)
+sideC = darken(dice, 10)
+sideC2 = darken(dice, 12.5)
+sideD = darken(dice, 15)
+sideD2 = darken(dice, 17.5)
+sideE = darken(dice, 20)
+sideE2 = darken(dice, 22.5)
 
 
 body
@@ -21,11 +26,43 @@ body
 #shapeD20
   position absolute
   margin -50px auto 0 auto
+  top 0
+  left 0
   padding 0
   list-style none
   width 100%
   height 100%
   transform-style preserve-3d
+
+  .triShape
+    overflow hidden
+    transform rotate(0.5236rad) skewY(0.5236rad) scaleX(0.86603)
+    .line
+      width 10px
+      height 100%
+      background black
+    &:before
+      transform scaleX(1.1547) skewY(-0.5236rad) rotate(-0.5236rad) translateY(-50%)
+      background-position 50% 100%
+      background-repeat no-repeat
+      background-size 10.5em 9.09327em
+      content ''
+
+    &:after
+      padding 0
+      margin 0
+      display block
+      width 100%
+      height 100%
+      font-size 30px
+      font-weight bold
+      color white
+      text-align center
+      line-height 65px
+      left 0px
+      position absolute
+      transform rotateZ(-45deg)
+
   .side1
     .triColor
       &:before
@@ -41,7 +78,7 @@ body
   .side7
     .triColor
       &:before
-        background-color sideA
+        background-color sideA2
       &:after
         content '7'
         transform rotateZ(135deg)
@@ -69,7 +106,7 @@ body
   .side9
     .triColor
       &:before
-        background-color sideB
+        background-color sideB2
       &:after
         content '9'
         transform rotateZ(135deg)
@@ -97,7 +134,7 @@ body
   .side11
     .triColor
       &:before
-        background-color sideC
+        background-color sideC2
       &:after
         content '11'
         transform rotateZ(135deg)
@@ -125,7 +162,7 @@ body
   .side13
     .triColor
       &:before
-        background-color sideD
+        background-color sideD2
       &:after
         content '13'
         transform rotateZ(135deg)
@@ -153,7 +190,7 @@ body
   .side15
     .triColor
       &:before
-        background-color sideE
+        background-color sideE2
       &:after
         content '15'
         transform rotateZ(135deg)
@@ -166,56 +203,6 @@ body
         content '20'
         transform rotateZ(135deg)
         line-height 250px
-  /*&.show-side1*/
-    /*transform rotateX(-60deg)*/
-  /*&.show-side2*/
-    /*transform rotateX(-60deg) rotateY(-72deg)*/
-  /*&.show-side3*/
-    /*transform rotateX(-60deg) rotateY(-144deg)*/
-  /*&.show-side4*/
-    /*transform rotateX(-60deg) rotateY(-216deg)*/
-  /*&.show-side5*/
-    /*transform rotateX(-60deg) rotateY(-288deg)*/
-  /*&.show-side6*/
-    /*transform rotateY(324deg)*/
-  /*&.show-side7*/
-    /*transform rotateY(144deg)*/
-  /*&.show-side8*/
-    /*transform rotateY(252deg)*/
-  /*&.show-side9*/
-    /*transform rotateY(216deg)*/
-  /*&.show-side10*/
-    /*transform rotateY(180deg)*/
-  /*&.show-side11*/
-    /*transform rotateY(288deg)*/
-  /*&.show-side12*/
-    /*transform rotateY(108deg)*/
-  /*&.show-side13*/
-    /*transform rotateY(0deg)*/
-  /*&.show-side14*/
-    /*transform rotateY(36deg)*/
-  /*&.show-side15*/
-    /*transform rotateY(72deg)*/
-  /*&.show-side16*/
-    /*transform rotateX(60deg) rotateY(180deg)*/
-    /*.side13*/
-      /*opacity 0.1*/
-  /*&.show-side17*/
-    /*transform rotateX(60deg) rotateY(252deg)*/
-    /*.side15*/
-      /*opacity 0.1*/
-  /*&.show-side18*/
-    /*transform rotateX(60deg) rotateY(324deg)*/
-    /*.side7*/
-      /*opacity 0.1*/
-  /*&.show-side19*/
-    /*transform rotateX(60deg) rotateY(396deg)*/
-    /*.side9*/
-      /*opacity 0.1*/
-  /*&.show-side20*/
-    /*transform rotateX(60deg) rotateY(108deg)*/
-    /*.side11*/
-      /*opacity 0.1*/
 
 .icosahedron, .icosahedron *, .icosahedron *:before
   position absolute
@@ -225,6 +212,9 @@ body
   width 10.5em
   height 10.5em
   transform-style preserve-3d
+
+.pyramid-top
+  transform translateY(-4.46592em) rotateX(0rad)
 
 .middle
   transform rotateY(0.62832rad)
@@ -244,18 +234,6 @@ body
   .innerFace_middle
     transform rotateX(-0.18869rad)
 
-.pyramid-top
-  transform translateY(-4.46592em) rotateX(0rad)
-
-.triShape
-  overflow hidden
-  transform rotate(0.5236rad) skewY(0.5236rad) scaleX(0.86603)
-  &:before
-    transform scaleX(1.1547) skewY(-0.5236rad) rotate(-0.5236rad) translateY(-50%)
-    background-position 50% 100%
-    background-repeat no-repeat
-    background-size 10.5em 9.09327em
-    content ''
 
 #shapeD20 .side1, #shapeD20 .side6, #shapeD20 .side7, #shapeD20 .side16
   transform rotateY(0rad) translateZ(7.22601em)
@@ -272,39 +250,10 @@ body
 #shapeD20 .side5, #shapeD20 .side14, #shapeD20 .side15, #shapeD20 .side20
   transform rotateY(5.02655rad) translateZ(7.22601em)
 
-.triColor
-  &:after
-    padding 0
-    margin 0
-    display block
-    width 100%
-    height 100%
-    font-size 30px
-    font-weight bold
-    color white
-    text-align center
-    line-height 65px
-    left 0px
-    position absolute
-    transform rotateZ(-45deg)
-
 .fade
   opacity 0.1
 .animated
   transition transform 1000ms cubic-bezier(0.175, 0.885, 0.320, 1)
-
-
-/*@keyframes spinD20*/
-  /*0%*/
-    /*transform rotateX(0deg) rotateY(0deg)*/
-  /*100%*/
-    /*transform rotateX(360deg) rotateY(360deg)*/
-
-
-/*.animationD20*/
-  /*animation spinD20 6s linear 2*/
-
-
 
 
 

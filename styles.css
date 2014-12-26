@@ -10,29 +10,65 @@ body {
 #shapeD20 {
   position: absolute;
   margin: -50px auto 0 auto;
+  top: 0;
+  left: 0;
   padding: 0;
   list-style: none;
   width: 100%;
   height: 100%;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-/*&.show-side1*/
-/*transform rotateX(-60deg)*/
+}
+#shapeD20 .triShape {
+  overflow: hidden;
+  -webkit-transform: rotate(0.5236rad) skewY(0.5236rad) scaleX(0.86603);
+      -ms-transform: rotate(0.5236rad) skewY(0.5236rad) scaleX(0.86603);
+          transform: rotate(0.5236rad) skewY(0.5236rad) scaleX(0.86603);
+}
+#shapeD20 .triShape .line {
+  width: 10px;
+  height: 100%;
+  background: #000;
+}
+#shapeD20 .triShape:before {
+  -webkit-transform: scaleX(1.1547) skewY(-0.5236rad) rotate(-0.5236rad) translateY(-50%);
+      -ms-transform: scaleX(1.1547) skewY(-0.5236rad) rotate(-0.5236rad) translateY(-50%);
+          transform: scaleX(1.1547) skewY(-0.5236rad) rotate(-0.5236rad) translateY(-50%);
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: 10.5em 9.09327em;
+  content: '';
+}
+#shapeD20 .triShape:after {
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  line-height: 65px;
+  left: 0px;
+  position: absolute;
+  -webkit-transform: rotateZ(-45deg);
+          transform: rotateZ(-45deg);
 }
 #shapeD20 .side1 .triColor:before {
-  background-color: rgba(255,100,0,0.9);
+  background-color: rgba(248,93,158,0.9);
 }
 #shapeD20 .side1 .triColor:after {
   content: '1';
 }
 #shapeD20 .side6 .triColor:before {
-  background-color: rgba(255,100,0,0.9);
+  background-color: rgba(248,93,158,0.9);
 }
 #shapeD20 .side6 .triColor:after {
   content: '6';
 }
 #shapeD20 .side7 .triColor:before {
-  background-color: rgba(255,100,0,0.9);
+  background-color: rgba(247,81,151,0.9);
 }
 #shapeD20 .side7 .triColor:after {
   content: '7';
@@ -41,7 +77,7 @@ body {
   line-height: 250px;
 }
 #shapeD20 .side16 .triColor:before {
-  background-color: rgba(255,100,0,0.9);
+  background-color: rgba(248,93,158,0.9);
 }
 #shapeD20 .side16 .triColor:after {
   content: '16';
@@ -50,19 +86,19 @@ body {
   line-height: 250px;
 }
 #shapeD20 .side2 .triColor:before {
-  background-color: rgba(204,80,0,0.9);
+  background-color: rgba(247,69,143,0.9);
 }
 #shapeD20 .side2 .triColor:after {
   content: '2';
 }
 #shapeD20 .side8 .triColor:before {
-  background-color: rgba(204,80,0,0.9);
+  background-color: rgba(247,69,143,0.9);
 }
 #shapeD20 .side8 .triColor:after {
   content: '8';
 }
 #shapeD20 .side9 .triColor:before {
-  background-color: rgba(204,80,0,0.9);
+  background-color: rgba(246,56,136,0.9);
 }
 #shapeD20 .side9 .triColor:after {
   content: '9';
@@ -71,7 +107,7 @@ body {
   line-height: 250px;
 }
 #shapeD20 .side17 .triColor:before {
-  background-color: rgba(204,80,0,0.9);
+  background-color: rgba(247,69,143,0.9);
 }
 #shapeD20 .side17 .triColor:after {
   content: '17';
@@ -80,19 +116,19 @@ body {
   line-height: 250px;
 }
 #shapeD20 .side3 .triColor:before {
-  background-color: rgba(153,60,0,0.9);
+  background-color: rgba(246,44,129,0.9);
 }
 #shapeD20 .side3 .triColor:after {
   content: '3';
 }
 #shapeD20 .side10 .triColor:before {
-  background-color: rgba(153,60,0,0.9);
+  background-color: rgba(246,44,129,0.9);
 }
 #shapeD20 .side10 .triColor:after {
   content: '10';
 }
 #shapeD20 .side11 .triColor:before {
-  background-color: rgba(153,60,0,0.9);
+  background-color: rgba(245,32,121,0.9);
 }
 #shapeD20 .side11 .triColor:after {
   content: '11';
@@ -101,7 +137,7 @@ body {
   line-height: 250px;
 }
 #shapeD20 .side18 .triColor:before {
-  background-color: rgba(153,60,0,0.9);
+  background-color: rgba(246,44,129,0.9);
 }
 #shapeD20 .side18 .triColor:after {
   content: '18';
@@ -110,19 +146,19 @@ body {
   line-height: 250px;
 }
 #shapeD20 .side4 .triColor:before {
-  background-color: rgba(128,50,0,0.9);
+  background-color: rgba(245,20,114,0.9);
 }
 #shapeD20 .side4 .triColor:after {
   content: '4';
 }
 #shapeD20 .side12 .triColor:before {
-  background-color: rgba(128,50,0,0.9);
+  background-color: rgba(245,20,114,0.9);
 }
 #shapeD20 .side12 .triColor:after {
   content: '12';
 }
 #shapeD20 .side13 .triColor:before {
-  background-color: rgba(128,50,0,0.9);
+  background-color: rgba(241,10,107,0.9);
 }
 #shapeD20 .side13 .triColor:after {
   content: '13';
@@ -131,7 +167,7 @@ body {
   line-height: 250px;
 }
 #shapeD20 .side19 .triColor:before {
-  background-color: rgba(128,50,0,0.9);
+  background-color: rgba(245,20,114,0.9);
 }
 #shapeD20 .side19 .triColor:after {
   content: '19';
@@ -140,19 +176,19 @@ body {
   line-height: 250px;
 }
 #shapeD20 .side5 .triColor:before {
-  background-color: rgba(102,40,0,0.9);
+  background-color: rgba(229,10,102,0.9);
 }
 #shapeD20 .side5 .triColor:after {
   content: '5';
 }
 #shapeD20 .side14 .triColor:before {
-  background-color: rgba(102,40,0,0.9);
+  background-color: rgba(229,10,102,0.9);
 }
 #shapeD20 .side14 .triColor:after {
   content: '14';
 }
 #shapeD20 .side15 .triColor:before {
-  background-color: rgba(102,40,0,0.9);
+  background-color: rgba(217,9,96,0.9);
 }
 #shapeD20 .side15 .triColor:after {
   content: '15';
@@ -161,7 +197,7 @@ body {
   line-height: 250px;
 }
 #shapeD20 .side20 .triColor:before {
-  background-color: rgba(102,40,0,0.9);
+  background-color: rgba(229,10,102,0.9);
 }
 #shapeD20 .side20 .triColor:after {
   content: '20';
@@ -169,54 +205,6 @@ body {
           transform: rotateZ(135deg);
   line-height: 250px;
 }
-/*&.show-side2*/
-/*transform rotateX(-60deg) rotateY(-72deg)*/
-/*&.show-side3*/
-/*transform rotateX(-60deg) rotateY(-144deg)*/
-/*&.show-side4*/
-/*transform rotateX(-60deg) rotateY(-216deg)*/
-/*&.show-side5*/
-/*transform rotateX(-60deg) rotateY(-288deg)*/
-/*&.show-side6*/
-/*transform rotateY(324deg)*/
-/*&.show-side7*/
-/*transform rotateY(144deg)*/
-/*&.show-side8*/
-/*transform rotateY(252deg)*/
-/*&.show-side9*/
-/*transform rotateY(216deg)*/
-/*&.show-side10*/
-/*transform rotateY(180deg)*/
-/*&.show-side11*/
-/*transform rotateY(288deg)*/
-/*&.show-side12*/
-/*transform rotateY(108deg)*/
-/*&.show-side13*/
-/*transform rotateY(0deg)*/
-/*&.show-side14*/
-/*transform rotateY(36deg)*/
-/*&.show-side15*/
-/*transform rotateY(72deg)*/
-/*&.show-side16*/
-/*transform rotateX(60deg) rotateY(180deg)*/
-/*.side13*/
-/*opacity 0.1*/
-/*&.show-side17*/
-/*transform rotateX(60deg) rotateY(252deg)*/
-/*.side15*/
-/*opacity 0.1*/
-/*&.show-side18*/
-/*transform rotateX(60deg) rotateY(324deg)*/
-/*.side7*/
-/*opacity 0.1*/
-/*&.show-side19*/
-/*transform rotateX(60deg) rotateY(396deg)*/
-/*.side9*/
-/*opacity 0.1*/
-/*&.show-side20*/
-/*transform rotateX(60deg) rotateY(108deg)*/
-/*.side11*/
-/*opacity 0.1*/
 .icosahedron,
 .icosahedron *,
 .icosahedron *:before {
@@ -228,6 +216,10 @@ body {
   height: 10.5em;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
+}
+.pyramid-top {
+  -webkit-transform: translateY(-4.46592em) rotateX(0rad);
+          transform: translateY(-4.46592em) rotateX(0rad);
 }
 .middle {
   -webkit-transform: rotateY(0.62832rad);
@@ -252,25 +244,6 @@ body {
 .icosahedron .innerFace_middle {
   -webkit-transform: rotateX(-0.18869rad);
           transform: rotateX(-0.18869rad);
-}
-.pyramid-top {
-  -webkit-transform: translateY(-4.46592em) rotateX(0rad);
-          transform: translateY(-4.46592em) rotateX(0rad);
-}
-.triShape {
-  overflow: hidden;
-  -webkit-transform: rotate(0.5236rad) skewY(0.5236rad) scaleX(0.86603);
-      -ms-transform: rotate(0.5236rad) skewY(0.5236rad) scaleX(0.86603);
-          transform: rotate(0.5236rad) skewY(0.5236rad) scaleX(0.86603);
-}
-.triShape:before {
-  -webkit-transform: scaleX(1.1547) skewY(-0.5236rad) rotate(-0.5236rad) translateY(-50%);
-      -ms-transform: scaleX(1.1547) skewY(-0.5236rad) rotate(-0.5236rad) translateY(-50%);
-          transform: scaleX(1.1547) skewY(-0.5236rad) rotate(-0.5236rad) translateY(-50%);
-  background-position: 50% 100%;
-  background-repeat: no-repeat;
-  background-size: 10.5em 9.09327em;
-  content: '';
 }
 #shapeD20 .side1,
 #shapeD20 .side6,
@@ -307,22 +280,6 @@ body {
   -webkit-transform: rotateY(5.02655rad) translateZ(7.22601em);
           transform: rotateY(5.02655rad) translateZ(7.22601em);
 }
-.triColor:after {
-  padding: 0;
-  margin: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  font-size: 30px;
-  font-weight: bold;
-  color: #fff;
-  text-align: center;
-  line-height: 65px;
-  left: 0px;
-  position: absolute;
-  -webkit-transform: rotateZ(-45deg);
-          transform: rotateZ(-45deg);
-}
 .fade {
   opacity: 0.1;
 }
@@ -330,10 +287,3 @@ body {
   -webkit-transition: -webkit-transform 1000ms cubic-bezier(0.175, 0.885, 0.32, 1);
           transition: transform 1000ms cubic-bezier(0.175, 0.885, 0.32, 1);
 }
-/*@keyframes spinD20*/
-/*0%*/
-/*transform rotateX(0deg) rotateY(0deg)*/
-/*100%*/
-/*transform rotateX(360deg) rotateY(360deg)*/
-/*.animationD20*/
-/*animation spinD20 6s linear 2*/

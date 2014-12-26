@@ -7,40 +7,38 @@ document.ontouchmove = function(e){
   var theList = $('#shapeD20')[0],
     hammer = new Hammer(theList);
 
-  var sides = {
-    side1: [-60, 0, 0],
-    side2: [-60, -72, 0],
-    side3: [-60, -144, 0],
-    side4: [-60, -216, 0],
-    side5: [-60, -288, 0],
-    side6: [0, 324, 0],
-    side7: [0, 144, 0],
-    side8: [0, 252, 0],
-    side9: [0, 216, 0],
-    side10: [0, 180, 0],
-    side11: [0, 288, 0],
-    side12: [0, 108, 0],
-    side13: [0, 0, 0],
-    side14: [0, 36, 0],
-    side15: [0, 72, 0],
-    side16: [60, 180, 13],
-    side17: [60, 252, 15],
-    side18: [60, 324, 7],
-    side19: [60, 396, 9],
-    side20: [60, 108, 11]
-  };
+  var sides = [
+  {x:-60, y:0},
+  {x:-60, y:-72},
+  {x:-60, y:-144},
+  {x:-60, y:-216},
+  {x:-60, y:-288},
+  {x:0, y:324},
+  {x:0, y:144},
+  {x:0, y:252},
+  {x:0, y:216},
+  {x:0, y:180},
+  {x:0, y:288},
+  {x:0, y:108},
+  {x:0, y:0},
+  {x:0, y:36},
+  {x:0, y:72},
+  {x:60, y:180},
+  {x:60, y:252},
+  {x:60, y:324},
+  {x:60, y:396},
+  {x:60, y:108}
+  ];
 
-  var arrayY = [0 ,-72 ,-144 ,-216 ,-288 ,324 ,144 ,252 ,216 ,180 ,288 ,108 ,0 ,36 ,72 ,180 ,252 ,324 ,396 ,108];
+  var missingSides = [13, 15, 7, 9, 11];
+
 
   var index = 20;
 
   hammer.get('pan').set({direction: Hammer.DIRECTION_ALL, threshold: 2, pointers: 0})
-  //
-  //var offset = 250;
 
-
-  var positionX = 0;
-  var positionY = 0;
+  var rotateX = 0;
+  var rotateY = 0;
 
 
   //var elementHeight = 130;
@@ -52,80 +50,56 @@ document.ontouchmove = function(e){
 
 
   hammer.on('pan', function(ev){
-    //var activeIndex = limit(-parseInt((scrollPosition + ev.deltaY) / elementHeight), getListLength() - 1);
-    //scroll(scrollPosition + ev.deltaY);
-    //setActive(activeIndex);
-    //adjustItems(scrollPosition + ev.deltaY);
-
-
-    //scroll(ev.deltaX, ev.deltaY);
-    scroll((positionX + ev.deltaX), (positionY + ev.deltaY));
-
+    var x = ev.deltaX % 360;
+    var y = ev.deltaY % 360;
+    scroll((rotateX + x), (rotateY + y));
   });
 
   hammer.on('panstart', function(){
     $('#shapeD20').removeClass('animated');
-
-    $('.side13').removeClass('fade');
-    $('.side15').removeClass('fade');
-    $('.side7').removeClass('fade');
-    $('.side9').removeClass('fade');
-    $('.side11').removeClass('fade');
+    missingSides.forEach(function(side){
+      $('.side' + side).removeClass('fade');
+    });
   });
 
   hammer.on('panend', function(ev){
     $('#shapeD20').addClass('animated');
+    rotateX = ev.deltaX % 360;
+    rotateY = ev.deltaY % 360;
+    index = closest(rotateX, rotateY);
 
-
-
-    index = (closest(ev.deltaY, arrayY)+1);
-
-    positionX = sides['side'+index][0];
-    positionY = sides['side'+index][1];
-
-    console.log(positionX + ' posX and posY ' + positionY);
-
+    rotateX = sides[index].x;
+    rotateY = sides[index].y;
     snapTo(index);
 
-
-
-
-    //var activeIndex = -parseInt((scrollPosition) / elementHeight);
-    //snapTo(activeIndex);
-
-
-
   });
-  //
-  //
 
-  function closest(num, arr) {
-    var curr = arr[0];
-    var diff = Math.abs(num - curr);
-    for (var val = 0; val < arr.length; val++) {
-      var newdiff = Math.abs(num - arr[val]);
+  function closest(x, y) {
+    var diff = compare((sides[0].x - x), (sides[0].y - y));
+    var index = 0;
+
+    for (var n = 0; n < sides.length; n++) {
+      var newdiff = compare((sides[n].x - x), (sides[n].y - y));
       if (newdiff < diff) {
         diff = newdiff;
-        curr = arr[val];
+        index = n;
       }
     }
-    return arr.indexOf(curr);
+    return index;
   }
 
-  //array = [2, 42, 82, 122, 162, 202, 242, 282, 322, 362];
-  //number = 112;
-  //alert(closest(number, array));
-
+  function compare(x, y) {
+    return Math.pow(x, 2) + Math.pow(y, 2);
+  }
 
   function snapTo(index){
 
-    var property = 'rotateX(' + sides['side'+index][0] + 'deg) rotateY(' + sides['side'+index][1] + 'deg)';
+    var property = 'rotateX(' + sides[index].x + 'deg) rotateY(' + sides[index].y + 'deg)';
     $('#shapeD20').css('transform', property);
-    $('.side' + sides['side' + index][2]).addClass('fade');
 
-
-
-
+    if (index >= 16) {
+      $('.side' + missingSides[index-16]).addClass('fade');
+    }
 
     //index = limit(index, getListLength() - 1);
     //
@@ -168,16 +142,14 @@ document.ontouchmove = function(e){
     //var value = 'rotateY(' + (deltaX) + 'deg) rotateX(' + (-deltaY) + 'deg)';
     $('#shapeD20').css({transform: value});
 
-
-    console.log(deltaX + " x and y " + deltaY);
-    //console.log("deltaY " + deltaY);
-
+    rotateX = (deltaX % 360) / 360;
+    rotateY = (deltaY % 360) / 360;
   }
-  //
-  //function setActive(activeIndex){
-  //  $('#funky .active').removeClass('active');
-  //  $('#funky li:nth-child('+ (activeIndex+1) +')').addClass('active');
-  //}
 
 })();
+
+
+
+
+
 
