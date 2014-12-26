@@ -94,12 +94,18 @@ document.ontouchmove = function(e){
   hammer.on('swipeup', function(ev) {
     if(!dicing) {
       dicing = true;
-      $('#container').addClass('run-test');
+      missingSides.forEach(function(side){
+        $('.side' + side).removeClass('fade');
+      });
+      $('#container').addClass('bounce');
 
       $('#container').one(animationEvent,
         function(event) {
-          $('#container').removeClass('run-test');
           dicing = false;
+          $('#container').css('transform', '');
+          $('#shadow').css('transform', 'translate3d(0,0,0)');
+          $('#shapeD20').css('transform', '');
+
         });
 
 
