@@ -4,8 +4,10 @@ document.ontouchmove = function(e){
 };
 
 (function(){
-  var theList = $('#shapeD20')[0],
-    hammer = new Hammer(theList);
+  var theList = $('#shapeD20')[0];
+  //var hammer = new Hammer(theList);
+
+  var hammer = new Hammer.Manager(theList);
 
   var sides = [
   {x:-60, y:0},
@@ -35,10 +37,16 @@ document.ontouchmove = function(e){
 
   var index = 20;
 
-  hammer.get('pan').set({direction: Hammer.DIRECTION_ALL, threshold: 2, pointers: 0})
+  //hammer.get('pan').set({direction: Hammer.DIRECTION_ALL, threshold: 2, pointers: 0});
+
+  hammer.add(new Hammer.Pan({direction: Hammer.DIRECTION_ALL, threshold: 2, pointers: 0}));
+  hammer.add(new Hammer.Swipe()).recognizeWith(hammer.get('pan'));
+  hammer.get('swipe').set({direction: Hammer.DIRECTION_VERTICAL});
 
   var rotateX = 0;
   var rotateY = 0;
+
+  var dicing = false;
 
 
   //var elementHeight = 130;
@@ -49,30 +57,59 @@ document.ontouchmove = function(e){
   //
 
 
+
   hammer.on('pan', function(ev){
-    var x = ev.deltaX % 360;
-    var y = ev.deltaY % 360;
-    scroll((rotateX + x), (rotateY + y));
+    if(!dicing){
+      var damper = 0.3;
+
+      var x = (-ev.deltaY*damper) % 360;
+      var y = (ev.deltaX*damper) % 360;
+      scroll((rotateX + x), (rotateY + y));
+    }
   });
 
   hammer.on('panstart', function(){
-    $('#shapeD20').removeClass('animated');
-    missingSides.forEach(function(side){
-      $('.side' + side).removeClass('fade');
-    });
+    if(!dicing) {
+      $('#shapeD20').removeClass('animated');
+      missingSides.forEach(function(side){
+        $('.side' + side).removeClass('fade');
+      });
+    }
   });
 
   hammer.on('panend', function(ev){
-    $('#shapeD20').addClass('animated');
-    rotateX = ev.deltaX % 360;
-    rotateY = ev.deltaY % 360;
-    index = closest(rotateX, rotateY);
+    if(!dicing) {
+      $('#shapeD20').addClass('animated');
+      rotateX = -ev.deltaY % 360;
+      rotateY = ev.deltaX % 360;
+      index = closest(rotateX, rotateY);
 
-    rotateX = sides[index].x;
-    rotateY = sides[index].y;
-    snapTo(index);
+      rotateX = sides[index].x;
+      rotateY = sides[index].y;
+      snapTo(index);
+    }
 
   });
+
+  hammer.on('swipeup', function(ev) {
+    if(!dicing) {
+      dicing = true;
+      $('#container').addClass('run-test');
+
+      $('#container').one(animationEvent,
+        function(event) {
+          $('#container').removeClass('run-test');
+          dicing = false;
+        });
+
+
+
+    }
+  })
+
+
+
+
 
   function closest(x, y) {
     var diff = compare((sides[0].x - x), (sides[0].y - y));
@@ -138,13 +175,44 @@ document.ontouchmove = function(e){
   //
   function scroll(deltaX, deltaY) {
 
+    //rotateX = (deltaX % 360) / 360;
+    //rotateY = (deltaY % 360) / 360;
+
+
+
     var value = 'rotateX(' + (deltaX) + 'deg) rotateY(' + (deltaY) + 'deg)';
     //var value = 'rotateY(' + (deltaX) + 'deg) rotateX(' + (-deltaY) + 'deg)';
+
+
+
     $('#shapeD20').css({transform: value});
 
-    rotateX = (deltaX % 360) / 360;
-    rotateY = (deltaY % 360) / 360;
   }
+
+
+  function whichAnimationEvent(){
+    var t,
+      el = document.createElement("fakeelement");
+
+    var animations = {
+      "animation"      : "animationend",
+      "OAnimation"     : "oAnimationEnd",
+      "MozAnimation"   : "animationend",
+      "WebkitAnimation": "webkitAnimationEnd"
+    }
+
+    for (t in animations){
+      if (el.style[t] !== undefined){
+        return animations[t];
+      }
+    }
+  }
+
+  var animationEvent = whichAnimationEvent();
+
+
+
+
 
 })();
 
