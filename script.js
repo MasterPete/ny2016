@@ -75,6 +75,13 @@ document.ontouchmove = function(e){
         $('.side' + side).removeClass('fade');
       });
     }
+
+    $('#ray').addClass('animated');
+    $('#ray').one(animationEvent,
+      function(event) {
+        $('#ray').remove();
+      });
+
   });
 
   hammer.on('panend', function(ev){
@@ -105,6 +112,8 @@ document.ontouchmove = function(e){
           $('#container').css('transform', '');
           $('#shadow').css('transform', 'translate3d(0,0,0)');
           $('#shapeD20').css('transform', '');
+
+          $('#message').addClass('animated');
 
         });
 

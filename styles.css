@@ -3,16 +3,143 @@
        box-sizing: border-box;
 }
 html,
-body {
+body,
+#container,
+#wrapper,
+.scale,
+#shadow {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
 }
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   background: #add8e6;
   overflow: hidden;
+}
+#container {
+  background: transparent url("table.jpg") no-repeat top center;
+  background-size: 242%;
+}
+#container #wrapper {
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#container #wrapper .text {
+  min-height: 150px;
+}
+#container #wrapper .text h1 {
+  font-size: 90px;
+  line-height: 80px;
+  margin: 10px 0 0 0;
+  font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+#container #wrapper .text h1 span {
+  letter-spacing: -0.1em;
+}
+#container #wrapper .text h2,
+#container #wrapper .text h3 {
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 17px;
+  margin: 0;
+}
+#container #wrapper .text h3 {
+  font-size: 14px;
+}
+#container #wrapper .text hr {
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.4), rgba(0,0,0,0));
+  background-image: linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.4), rgba(0,0,0,0));
+  width: 80%;
+}
+#container #wrapper aside {
+  padding-bottom: 20px;
+  font-size: 14px;
+  font-style: italic;
+}
+#container #wrapper #ray {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+#container #wrapper #ray:before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: transparent url("ray.png") no-repeat center center;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  top: 20px;
+  left: 0;
+  -webkit-animation: ray 40s infinite both linear;
+          animation: ray 40s infinite both linear;
+}
+#container #wrapper #ray:after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+  box-shadow: 0 0 30px 30px #fff;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 10%;
+  bottom: 0;
+  -webkit-animation: flash 2s infinite both linear;
+          animation: flash 2s infinite both linear;
+}
+#container #wrapper #ray.animated {
+  -webkit-animation: fade 400ms 1 both ease-out;
+          animation: fade 400ms 1 both ease-out;
+}
+.scale {
+  -webkit-transform: scale(0.5) translateY(-100px);
+      -ms-transform: scale(0.5) translateY(-100px);
+          transform: scale(0.5) translateY(-100px);
+}
+#message {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #9de7ff;
+  padding: 25px 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+#message p:first-child {
+  margin-top: 0;
+}
+#message p.small {
+  font-size: 12px;
+}
+#message.animated {
+  display: block;
+  -webkit-animation: fadeUp 400ms 1 both;
+          animation: fadeUp 400ms 1 both;
+  -webkit-transition: -webkit-transform 1s ease-out;
+          transition: transform 1s ease-out;
+}
+#shadow {
+  background: transparent url("shadow.png") no-repeat center;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
 #shapeD20 {
   position: absolute;
@@ -314,18 +441,6 @@ body {
   -webkit-transition: -webkit-transform 1s ease-out;
           transition: transform 1s ease-out;
 }
-#container {
-  height: 100%;
-  width: 100%;
-  background: transparent url("table.jpg") no-repeat center;
-}
-#shadow {
-  height: 100%;
-  width: 100%;
-  background: #ffc0cb url("shadow.png") no-repeat center;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-}
 @-webkit-keyframes bounce {
   0% {
     -webkit-transform: translate3d(-200px, -50px, -400px);
@@ -508,6 +623,114 @@ body {
   75% {
     -webkit-transform: scale(1.3);
             transform: scale(1.3);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-webkit-keyframes fadeUp {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes fadeUp {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@-webkit-keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes ray {
+  0% {
+    -webkit-transform: scale(2) rotate(0deg);
+            transform: scale(2) rotate(0deg);
+  }
+  33% {
+    -webkit-transform: scale(2.3) rotate(90deg);
+            transform: scale(2.3) rotate(90deg);
+  }
+  66% {
+    -webkit-transform: scale(2) rotate(180deg);
+            transform: scale(2) rotate(180deg);
+  }
+  66% {
+    -webkit-transform: scale(2.3) rotate(270deg);
+            transform: scale(2.3) rotate(270deg);
+  }
+  100% {
+    -webkit-transform: scale(2) rotate(360deg);
+            transform: scale(2) rotate(360deg);
+  }
+}
+@keyframes ray {
+  0% {
+    -webkit-transform: scale(2) rotate(0deg);
+            transform: scale(2) rotate(0deg);
+  }
+  33% {
+    -webkit-transform: scale(2.3) rotate(90deg);
+            transform: scale(2.3) rotate(90deg);
+  }
+  66% {
+    -webkit-transform: scale(2) rotate(180deg);
+            transform: scale(2) rotate(180deg);
+  }
+  66% {
+    -webkit-transform: scale(2.3) rotate(270deg);
+            transform: scale(2.3) rotate(270deg);
+  }
+  100% {
+    -webkit-transform: scale(2) rotate(360deg);
+            transform: scale(2) rotate(360deg);
+  }
+}
+@-webkit-keyframes flash {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes flash {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
   }
   100% {
     -webkit-transform: scale(1);
