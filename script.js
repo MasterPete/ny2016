@@ -5,8 +5,6 @@ document.ontouchmove = function(e){
 
 (function(){
   var theList = $('#shapeD20')[0];
-  //var hammer = new Hammer(theList);
-
   var hammer = new Hammer.Manager(theList);
 
   var sides = [
@@ -33,11 +31,7 @@ document.ontouchmove = function(e){
   ];
 
   var missingSides = [13, 15, 7, 9, 11];
-
-
   var index = 20;
-
-  //hammer.get('pan').set({direction: Hammer.DIRECTION_ALL, threshold: 2, pointers: 0});
 
   hammer.add(new Hammer.Pan({direction: Hammer.DIRECTION_ALL, threshold: 2, pointers: 0}));
   hammer.add(new Hammer.Swipe()).recognizeWith(hammer.get('pan'));
@@ -47,16 +41,6 @@ document.ontouchmove = function(e){
   var rotateY = 0;
 
   var dicing = false;
-
-
-  //var elementHeight = 130;
-  //var minFontRatio = 0.8;
-  //var maxFontRatio = 1.4;
-  //
-  //snapTo(parseInt(getListLength() / 2));
-  //
-
-
 
   hammer.on('pan', function(ev){
     if(!dicing){
@@ -77,6 +61,7 @@ document.ontouchmove = function(e){
     }
 
     $('#ray').addClass('animated');
+    $('aside').addClass('animated');
     $('#ray').one(animationEvent,
       function(event) {
         $('#ray').remove();
@@ -111,20 +96,11 @@ document.ontouchmove = function(e){
           dicing = false;
           $('#container').css('transform', '');
           $('#shadow').css('transform', 'translate3d(0,0,0)');
-          $('#shapeD20').css('transform', '');
-
+          $('#shapeD20').addClass('stop');
           $('#message').addClass('animated');
-
         });
-
-
-
     }
   })
-
-
-
-
 
   function closest(x, y) {
     var diff = compare((sides[0].x - x), (sides[0].y - y));
@@ -152,58 +128,12 @@ document.ontouchmove = function(e){
     if (index >= 16) {
       $('.side' + missingSides[index-16]).addClass('fade');
     }
-
-    //index = limit(index, getListLength() - 1);
-    //
-    //scrollPosition = -elementHeight * ((index + 1) - 0.5);
-    //scroll(scrollPosition);
-    //adjustItems(scrollPosition)
-    //setActive(index);
   }
 
-
-
-  //
-  //function adjustItems(scrollPosition) {
-  //  _(_.range(getListLength())).forEach(function (index) {
-  //    var delta = Math.abs(((index + 0.5) * elementHeight) + scrollPosition);
-  //    delta = (delta > 400) ? 400 : delta;
-  //    var fontSize = (1 - delta / 400) * (maxFontRatio - minFontRatio) + minFontRatio;
-  //    var fontMove = Math.sqrt(Math.pow(400, 2)  - Math.pow(delta, 2)) - 250;
-  //
-  //    $('#funky li:nth-child(' + (index + 1) + ') p').css({'-webkit-transform': 'scale(' + fontSize + ') translate(' + fontMove + 'px)'});
-  //  });
-  //}
-  //
-  //function limit(value, maxValue, minValue){
-  //  minValue = minValue || 0;
-  //  switch (true){
-  //    case value < minValue: return minValue;
-  //    case value > maxValue: return maxValue;
-  //    default: return value;
-  //  }
-  //}
-  //
-  //function getListLength(){
-  //  return $('#funky').children().length;
-  //}
-  //
   function scroll(deltaX, deltaY) {
-
-    //rotateX = (deltaX % 360) / 360;
-    //rotateY = (deltaY % 360) / 360;
-
-
-
     var value = 'rotateX(' + (deltaX) + 'deg) rotateY(' + (deltaY) + 'deg)';
-    //var value = 'rotateY(' + (deltaX) + 'deg) rotateX(' + (-deltaY) + 'deg)';
-
-
-
     $('#shapeD20').css({transform: value});
-
   }
-
 
   function whichAnimationEvent(){
     var t,
@@ -224,10 +154,6 @@ document.ontouchmove = function(e){
   }
 
   var animationEvent = whichAnimationEvent();
-
-
-
-
 
 })();
 
