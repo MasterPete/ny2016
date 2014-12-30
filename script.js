@@ -31,7 +31,7 @@ document.ontouchmove = function(e){
   ];
 
   var missingSides = [13, 15, 7, 9, 11];
-  var index = 20;
+  var index = 1;
 
   hammer.add(new Hammer.Pan({direction: Hammer.DIRECTION_ALL, threshold: 2, pointers: 0}));
   hammer.add(new Hammer.Swipe()).recognizeWith(hammer.get('pan'));
@@ -91,7 +91,7 @@ document.ontouchmove = function(e){
       });
       $('#container').addClass('bounce');
 
-      $('#container').one(animationEvent,
+      $('#shadow').one(animationEvent,
         function(event) {
           dicing = false;
           $('#container').css('transform', '');

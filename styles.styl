@@ -169,8 +169,6 @@ body
   height 100%
   background message
   padding 25px 20px
-  border-top-left-radius 10px
-  border-top-right-radius 10px
   p
     &:first-child
       margin-top 0
@@ -183,7 +181,8 @@ body
 
 
 #shadow
-  background transparent url('shadow.png') no-repeat center
+  /*background transparent url('shadow.png') no-repeat bottom 120px center*/
+  /*background-size 80%*/
   transform translate3d(0,0,0)
 
 
@@ -218,7 +217,7 @@ body
       display block
       width 100%
       height 100%
-      font-size 30px
+      font-size 25px
       font-weight bold
       color white
       text-align center
@@ -227,27 +226,26 @@ body
       position absolute
       transform rotateZ(-45deg)
 
-
   .side1
     .triColor
       &:before
-        background-color sideA
+        background-color rgba(255,0,0,0.9)
       &:after
-        content '1'
-        background transparent url('texture.png') no-repeat top center
+        content ''
+        background transparent url('texture.png') no-repeat top 20px center
         background-size 50%
   .side6
     .triColor
       &:before
         background-color sideA
       &:after
-        content '6'
+        content 'BEST'
   .side7
     .triColor
       &:before
         background-color sideA2
       &:after
-        content '7'
+        content 'BEST'
         transform rotateZ(135deg)
         line-height 250px
   .side16
@@ -255,7 +253,7 @@ body
       &:before
         background-color sideA
       &:after
-        content '16'
+        content 'BEST'
         transform rotateZ(135deg)
         line-height 250px
   .side2
@@ -263,19 +261,19 @@ body
       &:before
         background-color sideB
       &:after
-        content '2'
+        content 'BEST'
   .side8
     .triColor
       &:before
         background-color sideB
       &:after
-        content '8'
+        content 'BEST'
   .side9
     .triColor
       &:before
         background-color sideB2
       &:after
-        content '9'
+        content 'BEST'
         transform rotateZ(135deg)
         line-height 250px
   .side17
@@ -283,7 +281,7 @@ body
       &:before
         background-color sideB
       &:after
-        content '17'
+        content 'BEST'
         transform rotateZ(135deg)
         line-height 250px
   .side3
@@ -291,19 +289,19 @@ body
       &:before
         background-color sideC
       &:after
-        content '3'
+        content 'BEST'
   .side10
     .triColor
       &:before
         background-color sideC
       &:after
-        content '10'
+        content 'BEST'
   .side11
     .triColor
       &:before
         background-color sideC2
       &:after
-        content '11'
+        content 'BEST'
         transform rotateZ(135deg)
         line-height 250px
   .side18
@@ -311,7 +309,7 @@ body
       &:before
         background-color sideC
       &:after
-        content '18'
+        content 'BEST'
         transform rotateZ(135deg)
         line-height 250px
   .side4
@@ -319,19 +317,19 @@ body
       &:before
         background-color sideD
       &:after
-        content '4'
+        content 'BEST'
   .side12
     .triColor
       &:before
         background-color sideD
       &:after
-        content '12'
+        content 'BEST'
   .side13
     .triColor
       &:before
         background-color sideD2
       &:after
-        content '13'
+        content 'BEST'
         transform rotateZ(135deg)
         line-height 250px
   .side19
@@ -339,7 +337,7 @@ body
       &:before
         background-color sideD
       &:after
-        content '19'
+        content 'BEST'
         transform rotateZ(135deg)
         line-height 250px
   .side5
@@ -347,19 +345,19 @@ body
       &:before
         background-color sideE
       &:after
-        content '5'
+        content 'BEST'
   .side14
     .triColor
       &:before
         background-color sideE
       &:after
-        content '14'
+        content 'BEST'
   .side15
     .triColor
       &:before
         background-color sideE2
       &:after
-        content '15'
+        content 'BEST'
         transform rotateZ(135deg)
         line-height 250px
   .side20
@@ -367,7 +365,7 @@ body
       &:before
         background-color sideE
       &:after
-        content '20'
+        content 'BEST'
         transform rotateZ(135deg)
         line-height 250px
 
@@ -425,23 +423,13 @@ body
 
 @keyframes bounce
   0%
-    transform translate3d(-200px,-50px,-400px)
-  12%
-    transform translate3d(0px,0,-100px)
+    transform translate3d(0px,0,-50px)
   25%
-    transform translate3d(200px,-50px,-400px)
-  37%
-    transform translate3d(0px,-100px,-800px)
+    transform translate3d(100px,-50px,-200px)
   50%
-    transform translate3d(-200px,-50px,-400px)
-  62%
-    transform translate3d(0px,0,-100px)
+    transform translate3d(0px,-100px,-400px)
   75%
-    transform translate3d(200px,-50px,-400px)
-  87%
-    transform translate3d(0px,-100px,-800px)
-  95%
-    transform translate3d(-200px,-50px,-400px)
+    transform translate3d(-100px,-50px,-200px)
   100%
     transform translate3d(0px,0px,0px)
 
@@ -463,10 +451,14 @@ body
 
 @keyframes spinStop
   0%
-    transform rotateX(180deg) rotateY(135deg)
-  2%
+    transform rotateX(90deg) rotateY(45deg)
+  3%
+    transform rotateX(135deg) rotateY(45deg)
+  6%
+    transform rotateX(180deg) rotateY(90deg)
+  9%
     transform rotateX(225deg) rotateY(90deg)
-  8%
+  12%
     transform rotateX(270deg) rotateY(45deg)
   24%
     transform rotateX(312deg) rotateY(0)
@@ -482,15 +474,6 @@ body
     transform rotateX(361deg) rotateY(0)
   100%
     transform rotateX(360deg) rotateY(0)
-
-
-@keyframes zoom
-  0%
-    transform scale(1)
-  50%
-    transform scale(0.7)
-  100%
-    transform scale(1)
 
 @keyframes fadeUp
   0%
@@ -535,14 +518,14 @@ body
     transform translateY(0)
 
 #container.bounce
+  #shadow
+    animation bounce 400ms 7 both
+    transition transform 1s ease-out
+
   #shapeD20
-    animation spin 400ms 1 both
+    animation spin 400ms 7 both
     transition transform 1s ease-out
     &.stop
-      animation spinStop 5s 1 both
+      animation spinStop 3s 1 both
 
-/*animation zoom 4s 1 both*/
-/*transition transform 1s ease-out*/
-/*#shadow*/
-/*animation bounce 1s 3 both*/
-/*transition transform 1s ease-out*/
+
