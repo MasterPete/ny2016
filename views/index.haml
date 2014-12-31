@@ -1,0 +1,114 @@
+!!!
+%html
+  - if !params[:name].nil?
+    - @person = @wishes.select { |wish| wish[:url] == params[:name] }
+  %head
+    %title Hey #{@person[0][:name]}, Happy New Year 2015 from Pete C!
+    %script(src="js/hammer.min.js")
+    %script(src="js/jquery.min.js")
+    %meta{:name => 'viewport', :content => 'width=device-width'}
+    %link{:href => 'css/styles.css', :rel => 'stylesheet', :type => 'text/css'}
+  %body
+    #container
+      #wrapper
+        .text
+          %h1 20<span>1</span>5
+          %h2 Good year? Bad year?
+          %hr
+            %h3 Find out with PeteC's D20!
+        #ray
+        .scale
+          #shadow
+            #shapeD20.show-side1
+              .icosahedron
+                .pyramid-top
+                  .side1
+                    .innerFace_pyramid
+                      .triShape.triColor
+                  .side2
+                    .innerFace_pyramid
+                      .triShape.triColor
+                  .side3
+                    .innerFace_pyramid
+                      .triShape.triColor
+                  .side4
+                    .innerFace_pyramid
+                      .triShape.triColor
+                  .side5
+                    .innerFace_pyramid
+                      .triShape.triColor
+                .pyramid-bottom
+                  .side16
+                    .innerFace_pyramid
+                      .triShape.triColor
+                  .side17
+                    .innerFace_pyramid
+                      .triShape.triColor
+                  .side18
+                    .innerFace_pyramid
+                      .triShape.triColor
+                  .side19
+                    .innerFace_pyramid
+                      .triShape.triColor
+                  .side20
+                    .innerFace_pyramid
+                      .triShape.triColor
+                .middle
+                  .middle__half
+                    .side6
+                      .innerFace_middle
+                        .triShape.triColor
+                    .side8
+                      .innerFace_middle
+                        .triShape.triColor
+                    .side10
+                      .innerFace_middle
+                        .triShape.triColor
+                    .side12
+                      .innerFace_middle
+                        .triShape.triColor
+                    .side14
+                      .innerFace_middle
+                        .triShape.triColor
+                  .middle__half
+                    .side7
+                      .innerFace_middle
+                        .triShape.triColor
+                    .side9
+                      .innerFace_middle
+                        .triShape.triColor
+                    .side11
+                      .innerFace_middle
+                        .triShape.triColor
+                    .side13
+                      .innerFace_middle
+                        .triShape.triColor
+                    .side15
+                      .innerFace_middle
+                        .triShape.triColor
+        %aside
+          %p pan to inspect, swipe-up to throw
+      #message
+        .wrapper
+          .happy
+            %h2
+              You rolled the
+              %i> &nbsp;&times;BEST&nbsp;
+              year multiplyer!!
+              %h3 happy new year
+            %h4
+              %span 2015
+          .yay
+            %img{:src => "img/yay.gif"}
+          .wishes
+            %p Hey #{@person[0][:name]},
+            - if !@person[0][:word].nil?
+              %p #{@person[0][:word]}
+            - else
+              %p Thanks for putting up with me in 2013 - it was a blast! Wish you and your family a fantastic 2014 and looking forward to see you again soon!
+            %p
+              Cheers,
+              %br Pete C
+          .footer
+            %p.small *Remember, a Multiplyer multiply nothing is... nothing. Make sure your 2015 is great first to enjoy the stat boost!
+    %script(src="js/script.js")
