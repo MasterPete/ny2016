@@ -55,10 +55,7 @@ body
   overflow hidden
   .scale
     transform scale(0.5)
-
   +device-width(lg-phone)
-    /*background-size 188%*/
-    /*background-position top 10% center*/
     background-size cover
   +device-width(tablet)
     .scale
@@ -69,9 +66,13 @@ body
     text-align center
     display flex
     flex-direction column
+
+    > *
+      border 1px solid red
+
     .text
       min-height 150px
-      +device-width(tablet)
+      +device-width(laptop)
         min-height 200px
       h1
         font-size 90px
@@ -81,7 +82,7 @@ body
         font-weight bold
         span
           letter-spacing -0.1em
-        +device-width(tablet)
+        +device-width(laptop)
           font-size 130px
           line-height 130px
       h2, h3
@@ -89,11 +90,11 @@ body
         font-weight normal
         font-size 17px
         margin 0
-        +device-width(tablet)
+        +device-width(laptop)
           font-size 24px
       h3
         font-size 14px
-        +device-width(tablet)
+        +device-width(laptop)
           font-size 20px
       hr
         border 0
@@ -198,6 +199,7 @@ body
     flex-direction column
     justify-content space-between
     align-items center
+    overflow hidden
     +device-width(lg-phone)
       padding 60px 40px 40px 40px
     .happy
@@ -206,12 +208,12 @@ body
         font-family light
         font-weight normal
         font-size 17px
-        +device-width(tablet)
+        +device-width(laptop)
           font-size 30.5px
       h3, h4
         font-family heavy
         font-size 44px
-        +device-width(tablet)
+        +device-width(laptop)
           font-size 80px
       h4
         margin 0 -100%
@@ -252,7 +254,7 @@ body
       color rgba(0,0,0,0.4)
   &.animated
     display block
-    animation fadeUp 400ms 7s 1 both
+    animation fadeUp 400ms 7s 1 both ease-out
     transition transform 1s ease-out
 
 
@@ -510,12 +512,12 @@ body
     transform translateZ(-100px) rotateX(180deg) rotateY(180deg) rotateZ(0deg)
   33%
     transform translateZ(-100px) rotateX(360deg) rotateY(90deg) rotateZ(180deg)
-  50%
-    transform translateZ(-100px) rotateX(360deg) rotateY(360deg) rotateZ(360deg)
-  66%
-    transform translateZ(-100px) rotateX(180deg) rotateY(360deg) rotateZ(270deg)
-  83%
-    transform translateZ(-100px) rotateX(270deg) rotateY(180deg) rotateZ(180deg)
+  /*50%*/
+    /*transform translateZ(-100px) rotateX(360deg) rotateY(360deg) rotateZ(360deg)*/
+  /*66%*/
+    /*transform translateZ(-100px) rotateX(180deg) rotateY(360deg) rotateZ(270deg)*/
+  /*83%*/
+    /*transform translateZ(-100px) rotateX(270deg) rotateY(180deg) rotateZ(180deg)*/
   100%
     transform translateZ(-100px) rotateX(360deg) rotateY(360deg) rotateZ(360deg)
 
