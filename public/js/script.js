@@ -90,16 +90,24 @@ $(function(){
         $('.side' + side).removeClass('fade');
       });
       $('#container').addClass('bounce');
+
       $('#shadow').one(animationEvent,
         function(event) {
-          dicing = false;
-          $('#container').css('transform', '');
-          $('#shadow').css('transform', '');
-          $('#shapeD20').addClass('stop');
-          $('#shapeD20').one(animationEvent,
-            function(event) {
-              $('#message').addClass('animated');
-            });
+
+          setTimeout(function(){
+
+            dicing = false;
+            $('#container').css('transform', '');
+            $('#shadow').css('transform', '');
+            $('#shapeD20').addClass('stop');
+            $('#shapeD20').one(animationEvent,
+              function(event) {
+                $('#message').addClass('animated');
+              });
+
+          }, 1000);
+
+
         });
     }
   })
