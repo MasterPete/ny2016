@@ -16,7 +16,7 @@
           %h2 Good year? Bad year?
           %hr
             %h3 Find out with PeteC's D20!
-        #ray
+        -##ray
         .scale
           #shadow
             #shapeD20.show-side1
@@ -88,27 +88,27 @@
                         .triShape.triColor
         %aside
           %p pan to inspect, swipe-up to throw
-      #message
-        .wrapper
-          .happy
-            %h2
-              You rolled the
-              %i &times;BEST
-              year multiplyer!!
-              %h3 happy new year
-            %h4
-              %span 2015
-          .yay
-            %img{:src => "img/yay.gif"}
-          .wishes
-            %p Hey #{@person[0][:name]},
-            - if !@person[0][:word].nil?
-              %p #{@person[0][:word]}
-            - else
-              %p Thanks for putting up with me in 2014 - it was a blast! Wish you and your family a fantastic 2014 and looking forward to see you again soon!
-            %p
-              Cheers,
-              %br Pete C
-          .footer
-            %p.small *Remember, a Multiplyer multiply nothing is... nothing. Make sure your 2015 is great first to enjoy the stat boost!
+    #message
+      .wrapper
+        .happy
+          %h2
+            You rolled the
+            %i &times;BEST
+            year multiplyer!!
+            %h3 happy new year
+          %h4
+            %span 2015
+        .yay
+          %img{:src => "img/yay.gif"}
+        .wishes
+          %p Hey #{@person[0][:name]},
+          - if !@person[0][:word].nil?
+            %p #{@person[0][:word]}
+          - else
+            %p Thanks for putting up with me in 2014 - it was a blast! Wish you and your family a fantastic 2014 and looking forward to see you again soon!
+          %p
+            Cheers,
+            %br Pete C
+        .footer
+          %p.small *Remember, a Multiplyer multiply nothing is... nothing. Make sure your 2015 is great first to enjoy the stat boost!
     %script(src="js/script.js")
