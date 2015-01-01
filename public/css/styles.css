@@ -202,7 +202,8 @@ body {
           animation: fade 400ms 1 both ease-out;
 }
 #message {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
   position: absolute;
   overflow: hidden;
   top: 0;
@@ -327,11 +328,9 @@ body {
   color: rgba(0,0,0,0.4);
 }
 #message.animated {
-  display: block;
-  -webkit-animation: fadeUp 400ms 1 both ease-out;
-          animation: fadeUp 400ms 1 both ease-out;
-  -webkit-transition: -webkit-transform 1s ease-out;
-          transition: transform 1s ease-out;
+  opacity: 1;
+  -webkit-animation: fadeUp 400ms 1 both ease;
+          animation: fadeUp 400ms 1 both ease;
 }
 #shapeD20 {
   position: absolute;
@@ -615,14 +614,6 @@ body {
   -webkit-transition: -webkit-transform 1000ms cubic-bezier(0.175, 0.885, 0.32, 1);
           transition: transform 1000ms cubic-bezier(0.175, 0.885, 0.32, 1);
 }
-/*25%*/
-/*transform translate3d(100px,-50px,-200px)*/
-/*50%*/
-/*transform translate3d(0px,-100px,-400px)*/
-/*75%*/
-/*transform translate3d(-100px,-50px,-200px)*/
-/*100%*/
-/*transform translate3d(0px,0px,0px)*/
 #container.bounce #shadow {
   -webkit-animation: bounce 400ms 7 both;
           animation: bounce 400ms 7 both;
@@ -641,18 +632,46 @@ body {
 }
 @-webkit-keyframes bounce {
   0% {
-    background: #ffc0cb;
+    -webkit-transform: translate(0px, 0);
+            transform: translate(0px, 0);
+  }
+  25% {
+    -webkit-transform: translate(100px, -50px);
+            transform: translate(100px, -50px);
+  }
+  50% {
+    -webkit-transform: translate(0px, -100px);
+            transform: translate(0px, -100px);
+  }
+  75% {
+    -webkit-transform: translate(-100px, -50px);
+            transform: translate(-100px, -50px);
   }
   100% {
-    background: #ffa500;
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
   }
 }
 @keyframes bounce {
   0% {
-    background: #ffc0cb;
+    -webkit-transform: translate(0px, 0);
+            transform: translate(0px, 0);
+  }
+  25% {
+    -webkit-transform: translate(100px, -50px);
+            transform: translate(100px, -50px);
+  }
+  50% {
+    -webkit-transform: translate(0px, -100px);
+            transform: translate(0px, -100px);
+  }
+  75% {
+    -webkit-transform: translate(-100px, -50px);
+            transform: translate(-100px, -50px);
   }
   100% {
-    background: #ffa500;
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
   }
 }
 @-webkit-keyframes spin {

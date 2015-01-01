@@ -95,6 +95,7 @@ $(function(){
         function(event) {
           dicing = false;
           $('#container').css('transform', '');
+          $('#shadow').css('transform', '');
           $('#shapeD20').addClass('stop');
           $('#shapeD20').one(animationEvent,
             function(event) {
