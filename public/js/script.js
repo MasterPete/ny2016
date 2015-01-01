@@ -90,7 +90,6 @@ $(function(){
         $('.side' + side).removeClass('fade');
       });
       $('#container').addClass('bounce');
-
       $('#shadow').one(animationEvent,
         function(event) {
           dicing = false;
