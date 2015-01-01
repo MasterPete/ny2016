@@ -4,7 +4,7 @@ document.ontouchmove = function(e){
 };
 
 $(function(){
-  var theList = $('#shapeD20')[0];
+  var theList = $('body')[0];
   var hammer = new Hammer.Manager(theList);
 
   var sides = [
