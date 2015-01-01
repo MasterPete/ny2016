@@ -112,7 +112,7 @@ $(function(){
 
         });
     }
-  })
+  });
 
   function closest(x, y) {
     var diff = compare((sides[0].x - x), (sides[0].y - y));
