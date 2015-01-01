@@ -89,7 +89,9 @@ $(function(){
       missingSides.forEach(function(side){
         $('.side' + side).removeClass('fade');
       });
-      $('#container').addClass('bounce');
+      $('#shadow').addClass('bounce');
+      $('#shapeD20').removeClass('animated');
+      $('#shapeD20').addClass('bounce');
 
       $('#shadow').one(animationEvent,
         function(event) {
