@@ -57,14 +57,12 @@ body
     transform scale(0.5)
 
   +device-width(lg-phone)
-    background-size 188%
-    background-position top 10% center
+    /*background-size 188%*/
+    /*background-position top 10% center*/
+    background-size cover
   +device-width(tablet)
-    background-size 120%
     .scale
       transform scale(0.7)
-  +device-width(laptop)
-    background-size cover
 
 
   #wrapper
@@ -73,6 +71,8 @@ body
     flex-direction column
     .text
       min-height 150px
+      +device-width(tablet)
+        min-height 200px
       h1
         font-size 90px
         line-height 80px
@@ -132,6 +132,7 @@ body
       left 0
       right 0
       bottom 0
+      overflow hidden
       &:before
         content ''
         display block
@@ -166,7 +167,6 @@ body
           height @width
           border-radius @width
           box-shadow 0 0 50px 50px white
-          top 5%
       &.animated
         animation fade 400ms 1 both ease-out
 
