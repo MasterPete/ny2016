@@ -95,9 +95,11 @@ $(function(){
         function(event) {
           dicing = false;
           $('#container').css('transform', '');
-          $('#shadow').css('transform', 'translate3d(0,0,0)');
           $('#shapeD20').addClass('stop');
-          $('#message').addClass('animated');
+          $('#shapeD20').one(animationEvent,
+            function(event) {
+              $('#message').addClass('animated');
+            });
         });
     }
   })
