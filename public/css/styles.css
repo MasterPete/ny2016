@@ -615,13 +615,9 @@ body {
   -webkit-animation: bounce 400ms 7 both;
           animation: bounce 400ms 7 both;
 }
-#shapeD20 {
-  background: #ffc0cb;
-}
 #shapeD20.bounce {
   -webkit-animation: spin 400ms infinite both;
           animation: spin 400ms infinite both;
-  background: #ffa500;
 }
 #shapeD20.stop {
   -webkit-animation: spinStop 3s 1 both;
