@@ -67,10 +67,6 @@ body
     text-align center
     display flex
     flex-direction column
-
-    > *
-      border 1px solid red
-
     .text
       min-height 150px
       +device-width(laptop)
@@ -257,7 +253,7 @@ body
       color rgba(0,0,0,0.4)
   &.animated
     opacity 1
-    animation fadeUp 400ms 1 both ease
+    animation fadeUp 600ms 1 both ease
 
 
 #shapeD20
@@ -551,6 +547,10 @@ body
 @keyframes fadeUp
   0%
     transform translateY(100%)
+  30%
+    transform translateY(0)
+  50%
+    transform translateY(10%)
   100%
     transform translateY(0)
 

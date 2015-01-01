@@ -58,9 +58,6 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-#container #wrapper > * {
-  border: 1px solid #f00;
-}
 #container #wrapper .text {
   min-height: 150px;
 }
@@ -329,8 +326,8 @@ body {
 }
 #message.animated {
   opacity: 1;
-  -webkit-animation: fadeUp 400ms 1 both ease;
-          animation: fadeUp 400ms 1 both ease;
+  -webkit-animation: fadeUp 600ms 1 both ease;
+          animation: fadeUp 600ms 1 both ease;
 }
 #shapeD20 {
   position: absolute;
@@ -839,6 +836,14 @@ body {
     -webkit-transform: translateY(100%);
             transform: translateY(100%);
   }
+  30% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(10%);
+            transform: translateY(10%);
+  }
   100% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
@@ -848,6 +853,14 @@ body {
   0% {
     -webkit-transform: translateY(100%);
             transform: translateY(100%);
+  }
+  30% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(10%);
+            transform: translateY(10%);
   }
   100% {
     -webkit-transform: translateY(0);
