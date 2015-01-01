@@ -36,11 +36,15 @@ $(function(){
   hammer.add(new Hammer.Pan({direction: Hammer.DIRECTION_ALL, threshold: 2, pointers: 0}));
   hammer.add(new Hammer.Swipe()).recognizeWith(hammer.get('pan'));
   hammer.get('swipe').set({direction: Hammer.DIRECTION_VERTICAL});
+  hammer.add(new Hammer.Tap());
 
   var rotateX = 0;
   var rotateY = 0;
 
   var dicing = false;
+
+  hammer.on('tap', function(ev) {
+  });
 
   hammer.on('pan', function(ev){
     if(!dicing){
