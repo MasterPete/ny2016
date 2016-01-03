@@ -6,7 +6,6 @@ require 'csv'
 set :haml, format: :html5
 set :bind, '0.0.0.0'
 
-
 get '/:name' do
     @wishes = [{name: "there"}]
     CSV.foreach("#{settings.root}/assets/source.csv") do |row|

@@ -3,112 +3,67 @@
   - if !params[:name].nil?
     - @person = @wishes.select { |wish| wish[:url] == params[:name] }
   %head
-    %title Hey #{@person[0][:name]}, Happy New Year 2015 from Pete C!
-    %script(src="js/hammer.min.js")
+    %title Hey #{@person[0][:name]}, Happy New Year 2016 from Pete C!
     %script(src="js/jquery.min.js")
-    %meta{:name => 'viewport', :content => 'width=device-width'}
+    %meta{:name => 'viewport', :content => 'width=device-width, height=device-height, initial-scale=1, maximum-scale=1'}
     %link{:href => 'css/styles.css', :rel => 'stylesheet', :type => 'text/css'}
   %body
-    #container
-      #wrapper
-        .text
-          %h1 20<span>1</span>5
-          %h2 Good year? Bad year?
-          %hr
-          %h3 Find out with PeteC's D20!
-          %h4 Best = Best year. Skull = Bad year.
-        .scale
-          #shadow
-            #shapeD20.show-side1
-              .icosahedron
-                .pyramid-top
-                  .side1
-                    .innerFace_pyramid
-                      .triShape.triColor
-                  .side2
-                    .innerFace_pyramid
-                      .triShape.triColor
-                  .side3
-                    .innerFace_pyramid
-                      .triShape.triColor
-                  .side4
-                    .innerFace_pyramid
-                      .triShape.triColor
-                  .side5
-                    .innerFace_pyramid
-                      .triShape.triColor
-                .pyramid-bottom
-                  .side16
-                    .innerFace_pyramid
-                      .triShape.triColor
-                  .side17
-                    .innerFace_pyramid
-                      .triShape.triColor
-                  .side18
-                    .innerFace_pyramid
-                      .triShape.triColor
-                  .side19
-                    .innerFace_pyramid
-                      .triShape.triColor
-                  .side20
-                    .innerFace_pyramid
-                      .triShape.triColor
-                .middle
-                  .middle__half
-                    .side6
-                      .innerFace_middle
-                        .triShape.triColor
-                    .side8
-                      .innerFace_middle
-                        .triShape.triColor
-                    .side10
-                      .innerFace_middle
-                        .triShape.triColor
-                    .side12
-                      .innerFace_middle
-                        .triShape.triColor
-                    .side14
-                      .innerFace_middle
-                        .triShape.triColor
-                  .middle__half
-                    .side7
-                      .innerFace_middle
-                        .triShape.triColor
-                    .side9
-                      .innerFace_middle
-                        .triShape.triColor
-                    .side11
-                      .innerFace_middle
-                        .triShape.triColor
-                    .side13
-                      .innerFace_middle
-                        .triShape.triColor
-                    .side15
-                      .innerFace_middle
-                        .triShape.triColor
-        %aside
-          %p tap and drag to inspect, swipe-up to throw
-    #message
-      .wrapper
-        .happy
-          %h2
-            You rolled the
-            %i &times;BEST
-            year multiplier!!
-            %h3 happy new year
-          %h4
-            %span 2015
-        .yay
-          %img{:src => "img/yay.gif"}
-        .wishes
+
+    #timestream
+      .month
+        %h3
+          Hey, it's...
+          %span 2015
+        %p.continue Continue
+      .month
+        %h2 January
+      .month
+        %h2 Febuary
+      .month
+        %h2 March
+      .month
+        %h2 April
+      .month
+        %h2 May
+      .month
+        %h2 June
+      .month
+        %h2 July
+      .month
+        %h2 August
+      .month
+        %h2 September
+      .month
+        %h2 October
+      .month
+        %h2 November
+      .month
+        %h2 December
+      .month
+        %h1
+          Happy New Year
+          %span 2016
+        .textbox
           %p Hey #{@person[0][:name]},
           - if !@person[0][:word].nil?
             %p #{@person[0][:word]}
           - else
-            %p Thanks for putting up with me in 2014 - it was a blast! Wish you and your family a fantastic 2014 and looking forward to see you again soon!
+            %p Thank you very much for putting up with me in 2015 :) Have an awesome year and looking forward to your support in 2016!
           %p
             Cheers,
-            %br Pete C
-        .footer
-          %p.small *Remember, BEST x zero is... Zero. Make sure your 2015 is not zero to enjoy the benefits!
+            %br
+            Pete
+      #pete
+        .frame
+          #before
+            %img(src="img/before.png")
+          #timemachine
+            %img(src="img/timemachine.png")
+            %img.light(src="img/light.gif")
+          #after
+            %img(src="img/after.png")
+
+
+
+
     %script(src="js/script.js")
